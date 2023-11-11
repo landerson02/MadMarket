@@ -1,6 +1,7 @@
 package com.madhacks.madmarket.controller;
 
 import com.madhacks.madmarket.service.CategoryService;
+import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,9 +16,9 @@ public class CategoryController {
     CategoryService categoryService;
 
     @GetMapping("/getAllCategories")
-    public void getAllCategories() {
-        ArrayList<JSONObject> objs = categoryService.fetchAllCategories();
-        System.out.println(objs.get(0));
+    public String getAllCategories() {
+        JSONArray objs = categoryService.fetchAllCategories();
+        return objs.toString();
     }
 
 }
