@@ -1,6 +1,7 @@
 package com.madhacks.madmarket.controller;
 
 import com.madhacks.madmarket.config.CloudSqlConnectionPoolFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -13,10 +14,12 @@ import java.sql.SQLException;
 @RequestMapping(value = "/test")
 public class HelloController {
 
+    @Autowired
+    CloudSqlConnectionPoolFactory poolFactory;
 
     @GetMapping()
     public String hello() throws SQLException {
-        DataSource ds = CloudSqlConnectionPoolFactory.createConnectionPool();
+        DataSource ds = poolFactory.getDataSource();
         ResultSet rs = ds.getConnection().prepareStatement("select * from users").executeQuery();
 
         while (rs.next()) {

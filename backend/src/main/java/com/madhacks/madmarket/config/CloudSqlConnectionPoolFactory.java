@@ -2,16 +2,22 @@ package com.madhacks.madmarket.config;
 
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 
 import javax.sql.DataSource;
 
+@Configuration
 public class CloudSqlConnectionPoolFactory {
+
+
     private static final String INSTANCE_NAME = "madmarket:us-central1:madmarket";
     private static final String DB_USER = "postgres";
     private static final String DB_PASS = "madhacks";
     private static final String DB_NAME = "madmarketdb";
 
-    public static DataSource createConnectionPool() {
+    @Bean
+    public DataSource getDataSource() {
         HikariConfig config = new HikariConfig();
         config.setJdbcUrl(String.format("jdbc:postgresql:///%s", DB_NAME));
         config.setUsername(DB_USER);
@@ -20,4 +26,5 @@ public class CloudSqlConnectionPoolFactory {
         config.addDataSourceProperty("cloudSqlInstance", INSTANCE_NAME);
         return new HikariDataSource(config);
     }
+
 }
