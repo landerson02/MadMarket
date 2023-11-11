@@ -1,4 +1,35 @@
-.navbar.lightred {
+.navbar-lightred {
   background-color: #df1a1a;
   color: white;
+}
+
+.navbar-darkred {
+  background-color: #bd0808;
+  color: white;
+}
+
+.nav-link {
+  font-family: 'Times New Roman', serif;
+}
+
+.nav-link-top {
+  color: white;
+  font-size: 23px;
+  margin: 0 10px;
+}
+
+.nav-link-bottom {
+  color: white;
+  font-size: 20px;
+  margin: 0 30px;
+}
+
+.navbar-brand {
+  color: white;
+  font-family: Georgia, serif;
+  font-size: 50px;
+}
+
+.nav-link:hover {
+  color: #ccc;
 }
