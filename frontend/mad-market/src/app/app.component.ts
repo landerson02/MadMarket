@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ApiService } from "./services/api.service";
 
 @Component({
   selector: 'app-root',
@@ -6,8 +7,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  constructor() {
-
+  constructor(private apiService: ApiService) {
+    this.getTest();
   }
-  title = 'mad-market';
+
+  getTest() {
+    this.apiService.getTest().subscribe(data => {
+      console.log(data);
+    });
+  }
 }
