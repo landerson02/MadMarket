@@ -1,11 +1,11 @@
-class Category {
+class Subcategory {
   constructor(obj : any) {
     this.id = obj.id;
     this.name = obj.name;
-    this.subCategoryId = obj.subCategoryId;
+    this.categoryId = obj.categoryId;
   }
 
   public id: number;
   public name: string;
-  public subCategoryId: number;
+  public categoryId: number;
 }
