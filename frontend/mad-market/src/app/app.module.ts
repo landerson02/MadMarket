@@ -14,6 +14,7 @@ import { ListingComponent } from './components/listing/listing.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { SellComponent } from './components/sell/sell.component';
 import { ExpandedlistingComponent } from './components/expandedlisting/expandedlisting.component';
+import {notEqualValidator} from "./components/sell/not-equal.validator";
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { ExpandedlistingComponent } from './components/expandedlisting/expandedl
     FormsModule
   ],
   providers: [
-    ApiService
+    ApiService,
+    { provide: 'notEqualValidator', useValue: notEqualValidator },
   ],
   bootstrap: [AppComponent]
 })
