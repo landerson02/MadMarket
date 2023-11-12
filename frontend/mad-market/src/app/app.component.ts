@@ -145,4 +145,10 @@ export class AppComponent {
       this.model.user?.getListing(data);
     });
   }
+
+  onSaveListing(ListingId: number, userId: number) {
+    this.apiService.saveListing(userId, ListingId).subscribe(data => {
+      console.log(data);
+    });
+  }
 }

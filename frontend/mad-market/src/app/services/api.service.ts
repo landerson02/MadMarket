@@ -49,4 +49,8 @@ export class ApiService {
   deleteListing(id: number): Observable<any> {
     return this.http.get<any[]>(`${this.apiUrl}/deleteListing?listingId=${id}`);
   }
+
+  saveListing(userId: number, listingId: number): Observable<any> {
+    return this.http.get<any[]>(`${this.apiUrl}/saveListing?userId=${userId}&listingId=${listingId}`);
+  }
 }

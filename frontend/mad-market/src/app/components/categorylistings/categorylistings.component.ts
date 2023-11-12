@@ -8,6 +8,19 @@ import {Listing} from "../../objects/listing";
   styleUrls: ['./categorylistings.component.css']
 })
 export class CategorylistingsComponent implements OnChanges {
+
+  categories = [
+    { id: 1, name: 'Tickets', icon: "fa fa-ticket-alt" },
+    { id: 2, name: 'Appliances', icon: "fa fa-blender" },
+    { id: 3, name: 'Furniture', icon: "fa fa-couch" },
+    { id: 4, name: 'Sub-Leases', icon: "fa fa-file-contract" },
+    { id: 5, name: 'Clothing', icon: "fa fa-tshirt" },
+    { id: 6, name: 'Technology', icon: "fa fa-laptop" },
+    { id: 7, name: 'Other', icon: "fa fa-ellipsis-h" }
+  ];
+
+  selectedCategory: { id: number, name: string, icon: any } | undefined;
+
   @Input() model?: Model;
   @Input() categoryId?: number;
   public category?: string;
@@ -19,6 +32,13 @@ export class CategorylistingsComponent implements OnChanges {
   @Output() public deleteListing = new EventEmitter<number>();
 
   ngOnChanges(changes: SimpleChanges): void {
+    if (this.categoryId !== undefined) {
+      const category = this.categories.find(cat => cat.id === this.categoryId);
+      if (category) {
+        this.selectedCategory = category;
+      }
+    }
+
     this.category = this.model?.categories.find(category => category.id == this.categoryId)?.name;
     this.exView = this.expandedView;
     this.displayedListings.length = 0;

@@ -1,5 +1,6 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {Listing} from "../../objects/listing";
+import {User} from "../../objects/user";
 
 @Component({
   selector: 'app-listing',
@@ -8,6 +9,7 @@ import {Listing} from "../../objects/listing";
 })
 export class ListingComponent {
  @Input() listing?: Listing;
+ @Input() user?: User;
  @Output() expandedView = new EventEmitter<any>;
   formatPrice(price: number): string {
     // Check if price is defined
@@ -20,5 +22,9 @@ export class ListingComponent {
 
   onExpandedView() {
     this.expandedView.emit(this.listing);
+  }
+
+  onSaveListing(listingId: number, userId: number) {
+
   }
 }
