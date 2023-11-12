@@ -9,6 +9,8 @@ import { ApiService } from "./services/api.service";
 import { SigninComponent } from './components/signin/signin.component';
 import { SavedComponent } from './components/saved/saved.component';
 import { CategorylistingsComponent } from './components/categorylistings/categorylistings.component';
+import { ListingComponent } from './components/listing/listing.component';
+import {ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -16,12 +18,15 @@ import { CategorylistingsComponent } from './components/categorylistings/categor
     HeaderComponent,
     SigninComponent,
     SavedComponent,
-    CategorylistingsComponent
+    CategorylistingsComponent,
+    SavedComponent,
+    ListingComponent
   ],
   imports: [
     HttpClientModule,
     BrowserModule,
-    NgbModule
+    NgbModule,
+    ReactiveFormsModule
   ],
   providers: [
     ApiService
