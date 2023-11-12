@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@CrossOrigin(origins = {"http://localhost:4200", "https://madmarket-frontend.uc.r.appspot.com"})
+@CrossOrigin(origins = "https://madmarket-frontend.uc.r.appspot.com/")
 public class UserController {
 
     @Autowired
@@ -16,6 +16,11 @@ public class UserController {
     @PostMapping("/addUser")
     public String signUpUser(@RequestBody User user) {
         return userService.addUser(user.getName(), user.getEmail(), user.getPhone());
+    }
+
+    @GetMapping("/testing")
+    public String test() {
+        return "test";
     }
 
     @GetMapping("/getUserFromEmail")

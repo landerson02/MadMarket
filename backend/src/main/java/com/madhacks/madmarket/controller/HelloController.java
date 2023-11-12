@@ -14,8 +14,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 @RestController
-@RequestMapping(value = "/test")
-@CrossOrigin(origins = {"http://localhost:4200", "https://madmarket-frontend.uc.r.appspot.com"})
+//@RequestMapping(value = "/test")
+@CrossOrigin(origins = {"http://localhost:4200", "https://madmarket-frontend.uc.r.appspot.com/"})
 public class HelloController {
 
     @Autowired
