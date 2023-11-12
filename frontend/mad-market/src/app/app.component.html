@@ -11,4 +11,8 @@
   <div *ngIf="saved">
     <app-saved/>
   </div>
+
+  <div *ngIf="selectedCategory>0">
+    <app-categorylistings [categoryId]="selectedCategory" [model]="model"></app-categorylistings>
+  </div>
 </div>
