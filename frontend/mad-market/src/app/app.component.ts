@@ -40,6 +40,8 @@ export class AppComponent {
       this.apiService.getAllListingsByCategory(id).subscribe(data => {
         this.model.getListings(data);
       });
+      console.log(this.model.listings);
+      console.log(id);
     }
   }
 

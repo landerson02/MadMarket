@@ -1,4 +1,4 @@
-<div class="main-container" *ngIf="!exView">
+<div class="main-container" *ngIf="!exView && model">
   <div *ngIf="selectedCategory" class="header">
     <h1 class="category">
       <div [class]="selectedCategory.icon"></div>
@@ -26,7 +26,7 @@
     </div>
   </div>
   <div class="list-container">
-    <div *ngFor="let listing of displayedListings" class="list-container-item">
+    <div *ngFor="let listing of model.displayedListings" class="list-container-item">
       <app-listing [listing]="listing" (expandedView)="onExpandedView($event)"></app-listing>
     </div>
   </div>

@@ -7,11 +7,13 @@ export class Model {
     this.categories = [];
     this.subcategories = [];
     this.listings = [];
+    this.displayedListings = [];
   }
 
   public categories: Category[];
   public subcategories: Subcategory[];
   public listings: Listing[];
+  public displayedListings: Listing[];
   public user?: User;
 
   public getCategories(obj : any) {
@@ -22,8 +24,10 @@ export class Model {
 
   public getListings(obj : any) {
     this.listings.length = 0;
+    this.displayedListings.length = 0;
     for (let item of obj) {
       this.listings.push(new Listing(item));
+      this.displayedListings.push(new Listing(item));
     }
   }
 

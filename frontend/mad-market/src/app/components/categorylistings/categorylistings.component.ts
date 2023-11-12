@@ -41,12 +41,13 @@ export class CategorylistingsComponent implements OnChanges {
 
     this.category = this.model?.categories.find(category => category.id == this.categoryId)?.name;
     this.exView = this.expandedView;
-    this.displayedListings.length = 0;
-    if (this.model) {
-      for (let item of this.model.listings) {
-        this.displayedListings.push(item);
-      }
-    }
+    // this.displayedListings.length = 0;
+    // if (this.model) {
+    //   for (let item of this.model.listings) {
+    //     this.displayedListings.push(item);
+    //   }
+    // }
+    // console.log(this.displayedListings);
   }
 
   onExpandedView(listing: Listing) {
@@ -56,42 +57,44 @@ export class CategorylistingsComponent implements OnChanges {
 
   onGoBack() {
     this.exView = false;
-    this.displayedListings.length = 0;
-    if (this.model) {
-      for (let item of this.model.listings) {
-        this.displayedListings.push(item);
-      }
-    }
+    // this.displayedListings.length = 0;
+    // if (this.model) {
+    //   for (let item of this.model.listings) {
+    //     this.displayedListings.push(item);
+    //   }
+    // }
   }
 
   onSearch() {
-    this.displayedListings.length = 0;
     if (this.model) {
+      this.model.displayedListings.length = 0;
       for (let item of this.model.listings) {
         if (item.name.toLowerCase().includes(this.search.toLowerCase())) {
-          this.displayedListings.push(item);
+          this.model.displayedListings.push(item);
         }
         if (item.description.toLowerCase().includes(this.search.toLowerCase())) {
-          this.displayedListings.push(item);
+          this.model.displayedListings.push(item);
         }
       }
     }
   }
 
   onSort(val : number) {
-    switch (val) {
-      case 1:
-        this.displayedListings.sort((a, b) => a.timestamp > b.timestamp ? 1 : -1);
-        break;
-      case 2:
-        this.displayedListings.sort((a, b) => a.timestamp > b.timestamp ? -1 : 1);
-        break;
-      case 3:
-        this.displayedListings.sort((a, b) => b.price - a.price);
-        break;
-      case 4:
-        this.displayedListings.sort((a, b) => a.price - b.price);
-        break;
+    if (this.model) {
+      switch (val) {
+        case 1:
+          this.model.displayedListings.sort((a, b) => a.timestamp > b.timestamp ? 1 : -1);
+          break;
+        case 2:
+          this.model.displayedListings.sort((a, b) => a.timestamp > b.timestamp ? -1 : 1);
+          break;
+        case 3:
+          this.model.displayedListings.sort((a, b) => b.price - a.price);
+          break;
+        case 4:
+          this.model.displayedListings.sort((a, b) => a.price - b.price);
+          break;
+      }
     }
   }
 
