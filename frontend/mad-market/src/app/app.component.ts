@@ -123,10 +123,11 @@ export class AppComponent {
     this.apiService.addListing(Number(fields[0]), Number(fields[1]), Number(fields[2]),
       fields[3], fields[4], Number(fields[5])).subscribe(data => {
         console.log(data);
+        if (this.model.user) {
+          this.getListingByUser(this.model.user.userId);
+          console.log(this.model.user);
+        }
     });
-    if (this.model.user) {
-      this.getListingByUser(this.model.user.userId);
-    }
   }
 
   getListingByUser(id: number) {
