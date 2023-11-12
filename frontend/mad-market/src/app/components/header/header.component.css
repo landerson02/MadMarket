@@ -34,6 +34,27 @@
   color: #ccc;
 }
 
+
+.saved-button {
+  border: none; /* Removes the default button border */
+  display: flex; /* Aligns the text and icon */
+  align-items: center; /* Centers them vertically */
+  justify-content: center; /* Centers them horizontally (if needed) */
+}
+
+.saved-button:hover {
+  color: #ccc;
+}
+
+.saved-button:hover .bookmark-icon {
+  color: #ccc;
+}
+
+.bookmark-icon {
+  margin-left: 5px;
+}
+
+
 .navbar-brand:hover {
   color: #ccc;
   cursor: pointer;
