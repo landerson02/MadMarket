@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.sql.DataSource;
+import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
@@ -18,11 +19,13 @@ public class CategoryService {
     CloudSqlConnectionPoolFactory poolFactory;
 
     public JSONArray fetchAllCategories() {
+        Connection conn;
         JSONObject json;
         JSONArray arr = new JSONArray();
         try {
             DataSource ds = poolFactory.getDataSource();
-            ResultSet rs = ds.getConnection().prepareStatement("select * from categories").executeQuery();
+            conn = ds.getConnection();
+            ResultSet rs = conn.prepareStatement("select * from categories").executeQuery();
 
             while (rs.next()) {
                 Category c = new Category();
@@ -31,10 +34,12 @@ public class CategoryService {
                 json = new JSONObject(c);
                 arr.put(json);
             }
+            conn.close();
             rs.close();
             return arr;
 
         } catch (SQLException e) {
+            System.out.println(e);
             return null;
         }
     }

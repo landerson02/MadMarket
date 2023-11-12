@@ -14,9 +14,9 @@ public class UserController {
     @Autowired
     UserService userService;
 
-    @PostMapping
+    @PostMapping("/addUser")
     public void signUpUser(String name, String email, String phone) {
-
+        userService.addUser(name, email, phone);
     }
 
 
