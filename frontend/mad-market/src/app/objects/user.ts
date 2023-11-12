@@ -1,9 +1,9 @@
 export class User {
   constructor(obj : any) {
-    this.userId = obj.userId;
-    this.userName = obj.userName;
+    this.userId = obj.id;
+    this.userName = obj.name;
     this.email = obj.email;
-    this.phoneNumber = obj.phoneNumber;
+    this.phoneNumber = obj.phone;
   }
 
   public userId: number;

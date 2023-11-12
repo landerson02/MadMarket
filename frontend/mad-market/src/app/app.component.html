@@ -26,5 +26,5 @@
 </div>
 
 <div *ngIf="addListing">
-  <app-sell [categories]="model.categories"></app-sell>
+  <app-sell [categories]="model.categories" [user]="model.user" (sell)="onAddListing($event)"></app-sell>
 </div>

@@ -34,4 +34,10 @@ export class ApiService {
     const url = `${this.apiUrl}/getUserFromEmail?email=${email}`;
     return this.http.get(url);
   }
+
+  addListing(buyerId: number, listerId: number, categoryId: number, name: string, description: string, price: number): Observable<any> {
+    const url = `${this.apiUrl}/addListing`;
+    const body = { buyerId, listerId, categoryId, name, description, price };
+    return this.http.post(url, body);
+  }
 }
