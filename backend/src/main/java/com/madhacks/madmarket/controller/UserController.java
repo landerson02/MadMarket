@@ -1,5 +1,6 @@
 package com.madhacks.madmarket.controller;
 
+import com.madhacks.madmarket.repository.User;
 import com.madhacks.madmarket.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -14,9 +15,9 @@ public class UserController {
     UserService userService;
 
     @PostMapping("/addUser")
-    public void signUpUser(String name, String email, String phone) {
-        System.out.println("name: " + name);
-        userService.addUser(name, email, phone);
+    public void signUpUser(@RequestBody User user) {
+        System.out.println("name: " + user.getName());
+        userService.addUser(user.getName(), user.getEmail(), user.getPhone());
     }
 
 
