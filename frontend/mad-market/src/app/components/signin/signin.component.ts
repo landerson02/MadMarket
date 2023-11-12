@@ -9,12 +9,15 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class SigninComponent implements OnInit {
   public signingIn: boolean = true;
+  public init: boolean = false;
 
   signinForm: FormGroup = this.formBuilder.group({
     email: ['', [Validators.required, Validators.pattern('[a-zA-Z0-9._%+-]+@wisc\.edu$')]]
   });
 
   signupForm: FormGroup = this.formBuilder.group({
+    name: ['', Validators.required],
+    phone: ['', Validators.required],
     email: ['', [Validators.required, Validators.pattern('[a-zA-Z0-9._%+-]+@wisc\.edu$')]]
   });
 
@@ -25,6 +28,12 @@ export class SigninComponent implements OnInit {
     this.signinForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.pattern('[a-zA-Z0-9._%+-]+@wisc\.edu$')]]
     });
+    this.signupForm = this.formBuilder.group({
+      name: ['', Validators.required],
+      phone: ['', Validators.required],
+      email: ['', [Validators.required, Validators.pattern('[a-zA-Z0-9._%+-]+@wisc\.edu$')]]
+    });
+    this.init = true;
   }
 
   onSubmit() {
@@ -35,5 +44,8 @@ export class SigninComponent implements OnInit {
         phone: this.signupForm.value.phone,
         email: this.signupForm.value.email,
       });
+    if (!this.signingIn) {
+
+    }
   }
 }

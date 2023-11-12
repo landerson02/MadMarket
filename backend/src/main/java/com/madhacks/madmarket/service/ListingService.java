@@ -69,11 +69,14 @@ public class ListingService {
 
         DataSource ds = poolFactory.getDataSource();
         JSONArray arr = new JSONArray();
+        Connection conn;
         try {
-            ResultSet rs = ds.getConnection().prepareStatement(String.format("select * from listings WHERE category_id =%s", categoryId)).executeQuery();
+            conn = ds.getConnection();
+            ResultSet rs = conn.prepareStatement(String.format("select * from listings WHERE category_id =%s", categoryId)).executeQuery();
             while (rs.next()) {
                 arr.put(new JSONObject(createListing(rs)));
             }
+            conn.close();
             return arr;
         } catch (SQLException e) {
             System.out.println(e);
