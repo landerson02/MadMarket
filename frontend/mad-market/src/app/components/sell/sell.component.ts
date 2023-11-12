@@ -1,7 +1,8 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Category} from "../../objects/category";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {notEqual, notEqualValidator} from './not-equal.validator';
+import {notEqual} from './not-equal.validator';
+import {User} from "../../objects/user";
 
 
 @Component({
@@ -11,13 +12,15 @@ import {notEqual, notEqualValidator} from './not-equal.validator';
 })
 export class SellComponent implements OnInit {
   @Input() categories?: Category[];
+  @Input() user?: User;
+  @Output() public sell = new EventEmitter<string>();
 
   public init: boolean = false;
+  public success: boolean = false;
 
   sellForm: FormGroup = this.formBuilder.group({
     name: ['', Validators.required],
     description: ['', Validators.required],
-    contact: ['', [Validators.required, Validators.pattern('[a-zA-Z0-9._%+-]+@wisc\.edu$')]],
     price: ['', [Validators.required, Validators.pattern('/^\d+(\.\d{1,2})?$/')]],
     category: ['select', notEqual],
     imageUpload: [null],
@@ -29,18 +32,21 @@ export class SellComponent implements OnInit {
     this.sellForm = this.formBuilder.group({
       name: ['', Validators.required],
       description: ['', Validators.required],
-      contact: ['', [Validators.required, Validators.pattern('[a-zA-Z0-9._%+-]+@wisc\.edu$')]],
-      price: ['', Validators.required],
+      price: ['', [Validators.required]],
       category: ['select', notEqual],
       imageUpload: [null],
     });
     this.init = true;
+    this.success = false;
   }
 
   onSubmit(): void {
     // Handle form submission here
-    if(this.sellForm) {
-      console.log(this.sellForm.value);
+    if(this.sellForm && this.user) {
+      this.success = true;
+      const s = "-1,," + this.user.userId + ",," + this.sellForm.value.category + ",," + this.sellForm.value.name + ",," +
+        this.sellForm.value.description + ",," + this.sellForm.value.price;
+      this.sell.emit(s);
     }
   }
 }
