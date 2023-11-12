@@ -18,7 +18,7 @@
 </div>
 
 <div *ngIf="profile">
-  <app-profile [model] = "model"></app-profile>
+  <app-profile [user] = "model.user" [expandedView]="expandedView" [categories]="model.categories"></app-profile>
 </div>
 
 <div *ngIf="selectedCategory>0">
