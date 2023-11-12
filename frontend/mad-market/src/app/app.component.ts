@@ -66,6 +66,8 @@ export class AppComponent {
     this.home = false;
     this.addListing = false;
     this.selectedCategory = 0;
+    this.signUpError = 0;
+    this.signInError = 0;
   }
 
   onAddListingSelected() {
@@ -91,6 +93,7 @@ export class AppComponent {
     this.apiService.getUser(input).subscribe(data => {
       if (data) {
         this.signInError = 1;
+        this.model.getUser(data);
       } else {
         this.signInError = 2;
       }

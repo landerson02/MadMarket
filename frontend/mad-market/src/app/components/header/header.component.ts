@@ -1,5 +1,6 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {Category} from "../../objects/category";
+import {User} from "../../objects/user";
 
 @Component({
   selector: 'app-header',
@@ -8,6 +9,7 @@ import {Category} from "../../objects/category";
 })
 export class HeaderComponent {
   @Input() categories?: Category[];
+  @Input() user?: User;
   @Output() categorySelected = new EventEmitter<number>();
   @Output() saveSelected = new EventEmitter<void>();
   @Output() signInSelected = new EventEmitter<void>();

@@ -9,7 +9,6 @@ export class Listing {
     this.keywords = obj.keywords;
     this.timestamp = new Date(obj.timestamp);
     this.description = obj.description;
-    console.log(this);
   }
 
   public listingId: number;

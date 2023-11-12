@@ -1,6 +1,6 @@
 <div *ngIf="model">
   <app-header [categories] = "model.categories" (categorySelected)="onCategorySelected($event)"
-              (saveSelected)="onSaveSelected()" (signInSelected)="onSignInSelected()"
+              (saveSelected)="onSaveSelected()" (signInSelected)="onSignInSelected()" [user]="model.user"
               (sellSelected)="onAddListingSelected()"/>
 </div>
 

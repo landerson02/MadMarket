@@ -2,18 +2,34 @@
   <div class="container-fluid">
     <a class="navbar-brand" (click)="onCategorySelected(0)">MadMart</a>
     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-      <li class="nav-item">
-        <button class="nav-link  nav-link-top" (click)="onSignInSelected()">SIGN IN</button>
-      </li>
-      <li class="nav-item">
-        <button class="nav-link nav-link-top sell-button" (click)="onSellSelected()">SELL</button>
-      </li>
-      <li class="nav-item">
-        <button class="nav-link nav-link-top saved-button" (click)="onSaveSelected()">
-          SAVED
-          <i class="fas fa-bookmark bookmark-icon"></i>
-        </button>
-      </li>
+      <div *ngIf="!user">
+        <li class="nav-item">
+          <button class="nav-link  nav-link-top" (click)="onSignInSelected()">SIGN IN</button>
+        </li>
+      </div>
+      <div *ngIf="user">
+        <li class="nav-item">
+          <button class="nav-link nav-link-top sell-button">{{user.email}}</button>
+        </li>
+      </div>
+      <div *ngIf="user">
+        <li class="nav-item">
+          <button class="nav-link nav-link-top sell-button" (click)="user=undefined">SIGN OUT</button>
+        </li>
+      </div>
+      <div *ngIf="user">
+        <li class="nav-item">
+          <button class="nav-link nav-link-top sell-button" (click)="onSellSelected()">SELL</button>
+        </li>
+      </div>
+      <div *ngIf="user">
+        <li class="nav-item">
+          <button class="nav-link nav-link-top saved-button" (click)="onSaveSelected()">
+            SAVED
+            <i class="fas fa-bookmark bookmark-icon"></i>
+          </button>
+        </li>
+      </div>
     </ul>
   </div>
 </nav>
