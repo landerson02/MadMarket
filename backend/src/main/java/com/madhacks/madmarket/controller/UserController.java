@@ -14,8 +14,8 @@ public class UserController {
     UserService userService;
 
     @PostMapping("/addUser")
-    public void signUpUser(@RequestBody User user) {
-        String success = userService.addUser(user.getName(), user.getEmail(), user.getPhone());
+    public String signUpUser(@RequestBody User user) {
+        return userService.addUser(user.getName(), user.getEmail(), user.getPhone());
     }
 
     @GetMapping("/getUserFromEmail")
