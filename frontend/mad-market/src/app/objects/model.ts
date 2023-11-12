@@ -19,6 +19,7 @@ export class Model {
   }
 
   public getListings(obj : any) {
+    this.listings.length = 0;
     for (let item of obj) {
       this.listings.push(new Listing(item));
     }

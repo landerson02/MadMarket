@@ -1,12 +1,12 @@
 <nav class="navbar navbar-lightred navbar-expand-lg">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">MadMart</a>
+    <a class="navbar-brand" (click)="onCategorySelected(0)">MadMart</a>
     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
       <li class="nav-item">
-        <button class="nav-link  nav-link-top" href="#">Sign In</button>
+        <button class="nav-link  nav-link-top" (click)="onSignInSelected()">Sign In</button>
       </li>
       <li class="nav-item">
-        <button class="nav-link nav-link-top" href="#">Saved</button>
+        <button class="nav-link nav-link-top" (click)="onSaveSelected()">Saved</button>
       </li>
     </ul>
   </div>
@@ -16,7 +16,7 @@
     <ul class="navbar-nav">
       <div *ngFor="let item of categories">
         <li class="nav-item">
-          <button class="nav-link nav-link-bottom" (click)="onCategorySelected(item)">{{item.name}}</button>
+          <button class="nav-link nav-link-bottom" (click)="onCategorySelected(item.id)">{{item.name}}</button>
         </li>
       </div>
     </ul>

@@ -9,8 +9,18 @@ import {Category} from "../../objects/category";
 export class HeaderComponent {
   @Input() categories?: Category[];
   @Output() categorySelected = new EventEmitter<number>();
+  @Output() saveSelected = new EventEmitter<void>();
+  @Output() signInSelected = new EventEmitter<void>();
 
-  onCategorySelected(selectedCategory: Category) {
-    this.categorySelected.emit(selectedCategory.id);
+  onCategorySelected(id: number) {
+    this.categorySelected.emit(id);
+  }
+
+  onSaveSelected() {
+    this.saveSelected.emit();
+  }
+
+  onSignInSelected() {
+    this.signInSelected.emit();
   }
 }
