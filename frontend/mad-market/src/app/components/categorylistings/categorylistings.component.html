@@ -1,6 +1,9 @@
 <div class="main-container" *ngIf="!exView">
-  <div class="header">
-    <h1>{{category}}</h1>
+  <div *ngIf="selectedCategory" class="header">
+    <h1 class="category">
+      <div [class]="selectedCategory.icon"></div>
+      {{ selectedCategory.name }}
+    </h1>
   </div>
   <div class="filter-container">
     <div class="btn-container">
