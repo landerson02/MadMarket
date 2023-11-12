@@ -7,7 +7,8 @@ import { Observable } from 'rxjs';
 })
 export class ApiService {
 
-  apiUrl = 'http://localhost:8080';
+  //apiUrl = 'http://localhost:8080';
+  apiUrl = 'https://madmarket.ue.r.appspot.com';
 
   constructor(private http: HttpClient) { }
 
