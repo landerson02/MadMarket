@@ -12,6 +12,7 @@ export class AppComponent {
   public signIn: boolean = false;
   public saved: boolean = false;
   public home: boolean = true;
+  public addListing: boolean = false;
   public selectedCategory: number = 0;
   constructor(private apiService: ApiService) {
     this.model = new Model();
@@ -44,6 +45,7 @@ export class AppComponent {
     this.home = id == 0;
     this.signIn = false;
     this.saved = false;
+    this.addListing = false;
     this.getListings(id);
   }
 
@@ -51,6 +53,7 @@ export class AppComponent {
     this.saved = true;
     this.signIn = false;
     this.home = false;
+    this.addListing = false;
     this.selectedCategory = 0;
   }
 
@@ -58,6 +61,26 @@ export class AppComponent {
     this.signIn = true;
     this.saved = false;
     this.home = false;
+    this.addListing = false;
     this.selectedCategory = 0;
+  }
+
+  onAddListingSelected() {
+    this.addListing = true;
+    this.signIn = false;
+    this.saved = false;
+    this.home = false;
+    this.selectedCategory = 0;
+  }
+
+  onSigningUpSelected(input : string) {
+    const fields = input.split(",,");
+    this.apiService.addUser(fields[0], fields[1], fields[2]).subscribe(data => {
+      console.log(data);
+    });
+  }
+
+  onSigningInSelected(input : string) {
+    console.log(input);
   }
 }

@@ -22,4 +22,11 @@ export class ApiService {
   getAllListingsByCategory(id : number): Observable<any[]> {
     return this.http.get<any[]>(`${this.apiUrl}/getListingsByCategory?categoryId=${id}`);
   }
+
+  addUser(name: string, email: string, phone: string): Observable<any> {
+    const url = `${this.apiUrl}/addUser`;
+    const body = { name, email, phone };
+    console.log(body);
+    return this.http.post(url, body);
+  }
 }
