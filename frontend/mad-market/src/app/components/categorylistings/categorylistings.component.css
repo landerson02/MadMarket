@@ -5,7 +5,7 @@ body {
 }
 
 .main-container {
-  height: 100vh;
+  padding: 30px;
 }
 
 .header h1 {
@@ -14,11 +14,10 @@ body {
   padding-bottom: 10px;
 }
 
-.filter-container .search {
-  display: flex;
-  align-items: center;
-  gap: 10px;
+.filter-container .searchbar {
+  width: 300px;
 }
+
 .filter-container label {
   margin-bottom: 5px;
   color: #555;
@@ -28,7 +27,7 @@ body {
 .filter-container input {
   padding: 8px;
   border: 1px solid #ddd;
-  border-radius: 4px;
+  border-radius: 0 4px 4px 0;
   width: 100%;
 }
 
@@ -39,7 +38,10 @@ body {
 .filter-container {
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
 }
 
 .filter-container button {
@@ -49,20 +51,19 @@ body {
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  /*width: 100%;*/
 }
 
 .filter-container button:hover {
   background-color: #bd0808;
 }
 
-/*.list-container {*/
-/*  display: flex;*/
-/*  flex-direction: row;*/
-/*  flex-wrap: wrap;*/
-/*  justify-content: space-evenly;*/
-/*  overflow-y: scroll;*/
-/*}*/
+.btn-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
 
 .list-container {
   display: grid;

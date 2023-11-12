@@ -10,6 +10,7 @@ export class CategorylistingsComponent implements OnChanges {
   @Input() model?: Model;
   @Input() categoryId?: number;
   public category?: string;
+  public search: string = '';
 
   ngOnChanges(changes: SimpleChanges): void {
     this.category = this.model?.categories.find(category => category.id == this.categoryId)?.name;
