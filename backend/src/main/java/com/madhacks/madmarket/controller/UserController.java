@@ -20,7 +20,8 @@ public class UserController {
 
     @GetMapping("/getUserFromEmail")
     public String getUserFromEmail(String email) {
-        return userService.getUserFromEmail(email).toString();
+        JSONObject obj = userService.getUserFromEmail(email);
+        return obj!=null ? obj.toString() : null;
     }
 
 
