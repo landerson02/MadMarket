@@ -1,7 +1,6 @@
 import {Component, EventEmitter, Input, OnChanges, Output, SimpleChanges} from '@angular/core';
 import {Model} from "../../objects/model";
 import {Listing} from "../../objects/listing";
-import { faTicketAlt, faBlender, faCouch, faFileContract, faTshirt, faLaptop, faEllipsisH } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-categorylistings',
@@ -9,19 +8,6 @@ import { faTicketAlt, faBlender, faCouch, faFileContract, faTshirt, faLaptop, fa
   styleUrls: ['./categorylistings.component.css']
 })
 export class CategorylistingsComponent implements OnChanges {
-
-  categories = [
-    { id: 1, name: 'Tickets', icon: faTicketAlt },
-    { id: 2, name: 'Appliances', icon: faBlender },
-    { id: 3, name: 'Furniture', icon: faCouch },
-    { id: 4, name: 'Sub-Leases', icon: faFileContract },
-    { id: 5, name: 'Clothing', icon: faTshirt },
-    { id: 6, name: 'Technology', icon: faLaptop },
-    { id: 7, name: 'Other', icon: faEllipsisH }
-  ];
-
-  selectedCategory: { id: number, name: string, icon: any } | undefined;
-
   @Input() model?: Model;
   @Input() categoryId?: number;
   public category?: string;
@@ -33,13 +19,6 @@ export class CategorylistingsComponent implements OnChanges {
   @Output() public deleteListing = new EventEmitter<number>();
 
   ngOnChanges(changes: SimpleChanges): void {
-    if (this.categoryId !== undefined) {
-      const category = this.categories.find(cat => cat.id === this.categoryId);
-      if (category) {
-        this.selectedCategory = category;
-      }
-    }
-
     this.category = this.model?.categories.find(category => category.id == this.categoryId)?.name;
     this.exView = this.expandedView;
     this.displayedListings.length = 0;

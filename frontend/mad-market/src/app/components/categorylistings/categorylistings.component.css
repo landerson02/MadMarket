@@ -4,9 +4,6 @@ body {
   flex-direction: column;
 }
 
-.header{
-  font-family: Georgia, serif;
-}
 .main-container {
   padding: 30px;
 }
