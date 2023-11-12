@@ -1,6 +1,8 @@
 package com.madhacks.madmarket.service;
 
 import com.madhacks.madmarket.config.CloudSqlConnectionPoolFactory;
+import com.madhacks.madmarket.repository.User;
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -34,6 +36,33 @@ public class UserService {
         } catch (SQLException e) {
             System.out.println(e);
         }
+    }
+
+    public JSONObject getUserFromEmail(String email) {
+        Connection conn;
+        DataSource ds = poolFactory.getDataSource();
+        try {
+            conn = ds.getConnection();
+            System.out.println(email);
+            String query = String.format("SELECT * FROM users WHERE email = '%s';", email);
+            ResultSet rs = conn.createStatement().executeQuery(query);
+            rs.next();
+            User user = createUser(rs.getInt("id") ,rs.getString("username"), rs.getString("email"), rs.getString("phone"));
+            conn.close();
+            return new JSONObject(user);
+        } catch (SQLException e) {
+            System.out.println(e);
+            return null;
+        }
+    }
+
+    private User createUser(int id, String name, String email, String phone) {
+        User user = new User();
+        user.setId(id);
+        user.setEmail(email);
+        user.setName(name);
+        user.setPhone(phone);
+        return user;
     }
 
     private boolean userExistsCheck(String email) {
