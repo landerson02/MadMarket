@@ -84,4 +84,17 @@ public class UserService {
         }
     }
 
+    public String updateUser(int id, String name, String email, String phone) {
+        DataSource ds = poolFactory.getDataSource();
+        Connection conn;
+        try {
+           conn = ds.getConnection();
+           String query = String.format("UPDATE users SET username = '%s', email = '%s', phone = '%s' WHERE id = '%s';", name, email, phone, id);
+           conn.createStatement().execute(query);
+           return "success";
+        } catch (SQLException e) {
+            System.out.println(e);
+            return null;
+        }
+    }
 }
