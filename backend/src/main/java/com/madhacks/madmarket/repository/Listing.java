@@ -22,6 +22,6 @@ public class Listing {
     private Long categoryId;
     private String name;
     private String description;
-    private String price;
+    private Float price;
     private Date timestamp;
 }
