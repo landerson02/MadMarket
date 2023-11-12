@@ -1,7 +1,7 @@
-class Category {
+export class Category {
   constructor(obj : any) {
-    this.id = obj.id;
-    this.name = obj.name;
+    this.id = obj.categoryId;
+    this.name = obj.categoryName;
     this.subCategoryId = obj.subCategoryId;
   }
 

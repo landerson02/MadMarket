@@ -1,2 +1,6 @@
-<app-header/>
+<div *ngIf="model">
+  <app-header [categories] = "model.categories" (categorySelected)="onCategorySelected($event)"/>
+</div>
+
+
 

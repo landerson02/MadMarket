@@ -1,4 +1,4 @@
-class User {
+export class User {
   constructor(obj : any) {
     this.userId = obj.userId;
     this.userName = obj.userName;

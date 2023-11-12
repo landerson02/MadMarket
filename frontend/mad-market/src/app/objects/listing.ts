@@ -1,4 +1,4 @@
-class Listing {
+export class Listing {
   constructor(obj : any) {
     this.listingId = obj.listingId;
     this.buyerId = obj.buyerId;
