@@ -9,7 +9,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.File;
 
 @RestController
-@CrossOrigin(origins = {"http://localhost:4200", "https://madmarket-frontend.uc.r.appspot.com/"})
+@CrossOrigin(origins = {"http://localhost:4200", "https://madmarket-frontend.uc.r.appspot.com"})
 public class ListingController {
 
     @Autowired
@@ -75,6 +75,12 @@ public class ListingController {
         return listingService.getListingsByBuyerId(buyerId).toString();
     }
 
+    @GetMapping("/buyListing")
+    public void buyListing(long listingId, long buyerId) {
+        listingService.buyListing(listingId, buyerId);
+    }
+
+
     @GetMapping("/addListingTEST")
     public void addListing() {
         int MAX_ID = 7;
@@ -85,6 +91,8 @@ public class ListingController {
             }
         }
     }
+
+
 
 
 }

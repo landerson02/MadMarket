@@ -196,29 +196,6 @@ public class ListingService {
         }
     }
 
-//    public JSONArray getListingsByUserId(Long userId) {
-//        DataSource ds = poolFactory.getDataSource();
-//        JSONArray arr = new JSONArray();
-//        Connection conn;
-//        try {
-//            conn = ds.getConnection();
-//            ResultSet rs = conn.prepareStatement(String.format("SELECT Listings.*\n" +
-//                    "FROM Users\n" +
-//                    "JOIN UserListings ON Users.ID = UserListings.UserID\n" +
-//                    "JOIN Listings ON UserListings.ListingID = Listings.Listing_ID\n" +
-//                    "WHERE Users.ID = %s;\n", userId)).executeQuery();
-//            while (rs.next()) {
-//                System.out.println("here");
-//                arr.put(new JSONObject(createListing(rs)));
-//            }
-//            conn.close();
-//            return arr;
-//        } catch (SQLException e) {
-//            System.out.println(e);
-//            return null;
-//        }
-//    }
-
     public void uploadImage(MultipartFile file, Long listingId) {
         DataSource ds = poolFactory.getDataSource();
         try (Connection conn = ds.getConnection()) {
@@ -260,6 +237,16 @@ public class ListingService {
         } catch (SQLException e) {
             System.out.println(e);
             return null;
+        }
+    }
+
+    public void buyListing(long listingId, long buyerId) {
+        DataSource ds = poolFactory.getDataSource();
+        try (Connection conn = ds.getConnection()) {
+            String query = String.format("UPDATE Listings SET buyer_id = '%s' WHERE listing_id = '%s';", buyerId, listingId);
+            conn.createStatement().execute(query);
+        } catch (SQLException e) {
+            System.out.println(e);
         }
     }
 }
