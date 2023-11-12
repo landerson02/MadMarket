@@ -59,3 +59,21 @@
 #price {
   margin-top: -10px;
 }
+
+.bottom-right {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+button.bottom-right {
+  border: 0;
+  background: none;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+}
+
+button.bottom-right:hover {
+  color: #ffd700;
+}
