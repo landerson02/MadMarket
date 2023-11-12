@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" *ngIf="init">
   <div *ngIf="signingIn" class="signin-container">
     <h1>Sign In</h1>
     <form [formGroup]="signinForm" (ngSubmit)="onSubmit()" class="signin-form">
@@ -33,7 +33,7 @@
       </div>
 
       <div class="form-group">
-        <label for="email">Email:</label>
+        <label for="newEmail">Email:</label>
         <input type="email" id="newEmail" formControlName="email">
         <div *ngIf="signupForm.get('email')?.hasError('pattern')" class="error-message">
           Please enter a valid wisc.edu email address.
