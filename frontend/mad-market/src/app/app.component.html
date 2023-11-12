@@ -2,5 +2,8 @@
   <app-header [categories] = "model.categories" (categorySelected)="onCategorySelected($event)"/>
 </div>
 
+<div *ngIf="signIn">
+  <app-signin/>
+</div>
 
 
