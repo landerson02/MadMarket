@@ -14,7 +14,13 @@
     </form>
     <div class="signup-container">
       <h6>Don't have an account?</h6>
-      <button (click)="signingIn=false" class="signup-button">Sign Up</button>
+      <button (click)="signingIn=false; signInError=0" class="signup-button">Sign Up</button>
+    </div>
+    <div *ngIf="signInError==1">
+      <h6 style="text-align: center; font-style: italic; color: green">Success</h6>
+    </div>
+    <div *ngIf="signInError==2">
+      <h6 style="text-align: center; font-style: italic; color: red">Account does not exist. Please sign up.</h6>
     </div>
   </div>
 
@@ -47,7 +53,14 @@
 
     <div class="signup-container">
       <h6>Already have an account?</h6>
-      <button (click)="signingIn=true" class="signup-button">Sign In</button>
+      <button (click)="signingIn=true; signUpError=0" class="signup-button">Sign In</button>
+    </div>
+
+    <div *ngIf="signUpError==1">
+      <h6 style="text-align: center; font-style: italic; color: green">Success</h6>
+    </div>
+    <div *ngIf="signUpError==2">
+      <h6 style="text-align: center; font-style: italic; color: red">Account already exists. Please sign in.</h6>
     </div>
   </div>
 </div>

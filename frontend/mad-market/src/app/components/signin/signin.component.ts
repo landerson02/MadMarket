@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 
@@ -12,6 +12,8 @@ export class SigninComponent implements OnInit {
   public init: boolean = false;
   @Output() public signup = new EventEmitter<string>();
   @Output() public signin = new EventEmitter<string>();
+  @Input() public signInError: number = 0;
+  @Input() public signUpError: number = 0;
 
   signinForm: FormGroup = this.formBuilder.group({
     email: ['', [Validators.required, Validators.pattern('[a-zA-Z0-9._%+-]+@wisc\.edu$')]]

@@ -5,7 +5,8 @@
 </div>
 
 <div *ngIf="signIn">
-  <app-signin (signup)="onSigningUpSelected($event)" (signin)="onSigningInSelected($event)"/>
+  <app-signin (signup)="onSigningUpSelected($event)" (signin)="onSigningInSelected($event)"
+              [signInError]="signInError" [signUpError]="signUpError"/>
 </div>
 
 <div *ngIf="saved">
