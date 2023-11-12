@@ -1,7 +1,9 @@
-<div *ngIf="listing" class="card" (click)="onExpandedView()">
+<div *ngIf="listing" xmlns="http://www.w3.org/1999/html" class="card" (click)="onExpandedView()">
   <img class="card-img-top" src="assets/bucky_home.jpg" alt="Listing image">
   <div class="card-body">
     <h5 class="card-title">{{listing.name}}</h5>
     <h6 class="card-subtitle">${{formatPrice(listing.price)}}</h6>
   </div>
+
+  <button class="fa-solid fa-bookmark bottom-right"></button>
 </div>
