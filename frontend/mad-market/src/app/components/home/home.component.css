@@ -78,5 +78,55 @@ h2 {
 }
 
 #Top_Picks {
-  margin-left: 50px;
+  margin-left: 60px;
+}
+
+.scrolling-pictures {
+  display: flex;
+  overflow-x: auto;
+  padding: 20px;
+  margin-left: 35px;
+  width: 92%;
+}
+
+.scrolling-pictures > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #ebebeb;
+  border-radius: 10px;
+  width: 220px;
+  height: auto;
+  flex: 0 0 auto;
+  margin-right: 10px;
+  padding: 10px;
+}
+
+.scrolling-pictures img {
+  width: 200px;
+  height: 250px;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+.scrolling-pictures p {
+  margin: 0;
+  color: #333;
+  font-size: 14px;
+  text-align: center;
+}
+
+.popup {
+  display: none;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 300px;
+  background-color: white;
+  padding: 20px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  border-radius: 10px;
+  z-index: 1000; /* Ensures the popup is above other elements */
 }
