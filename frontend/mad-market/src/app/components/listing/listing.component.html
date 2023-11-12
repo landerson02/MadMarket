@@ -1,4 +1,4 @@
-<div *ngIf="listing" class="card">
+<div *ngIf="listing" class="card" (click)="onExpandedView()">
   <img class="card-img-top" src="assets/bucky_home.jpg" alt="Listing image">
   <div class="card-body">
     <h5 class="card-title">{{listing.name}}</h5>

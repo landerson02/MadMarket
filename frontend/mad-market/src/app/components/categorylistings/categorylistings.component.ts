@@ -1,5 +1,6 @@
 import {Component, Input, OnChanges, SimpleChanges} from '@angular/core';
 import {Model} from "../../objects/model";
+import {Listing} from "../../objects/listing";
 
 @Component({
   selector: 'app-categorylistings',
@@ -11,16 +12,17 @@ export class CategorylistingsComponent implements OnChanges {
   @Input() categoryId?: number;
   public category?: string;
   public search: string = '';
+  @Input() public expandedView: boolean = false;
+  public exView: boolean = false;
+  selectedListing?: Listing;
 
   ngOnChanges(changes: SimpleChanges): void {
     this.category = this.model?.categories.find(category => category.id == this.categoryId)?.name;
-    console.log(this.category);
+    this.exView = this.expandedView;
   }
 
-  searchQuery: string = '';
-
-  onSubmit() {
-    console.log('Search query submitted:', this.searchQuery);
-    // Add additional logic here, such as performing a search operation
+  onExpandedView(listing: Listing) {
+    this.exView = true;
+    this.selectedListing = listing;
   }
 }

@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {Listing} from "../../objects/listing";
 
 @Component({
@@ -8,7 +8,7 @@ import {Listing} from "../../objects/listing";
 })
 export class ListingComponent {
  @Input() listing?: Listing;
-
+ @Output() expandedView = new EventEmitter<any>;
   formatPrice(price: number): string {
     // Check if price is defined
       // Use toFixed to format the price to 2 decimal places
@@ -16,5 +16,9 @@ export class ListingComponent {
 
     // Handle the case where price is undefined
     // return '';
+  }
+
+  onExpandedView() {
+    this.expandedView.emit(this.listing);
   }
 }

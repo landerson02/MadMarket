@@ -18,7 +18,7 @@
 </div>
 
 <div *ngIf="selectedCategory>0">
-  <app-categorylistings [categoryId]="selectedCategory" [model]="model"></app-categorylistings>
+  <app-categorylistings [categoryId]="selectedCategory" [model]="model" [expandedView]="expandedView"/>
 </div>
 
 <div *ngIf="addListing">

@@ -14,6 +14,7 @@ export class AppComponent {
   public home: boolean = true;
   public addListing: boolean = false;
   public selectedCategory: number = 0;
+  public expandedView: boolean = false;
   public signUpError: number = 0;
   public signInError: number = 0;
 
@@ -21,7 +22,6 @@ export class AppComponent {
     this.model = new Model();
     this.getCategories();
     this.getListings(0);
-    console.log(this.model);
   }
 
   getCategories() {
@@ -40,7 +40,6 @@ export class AppComponent {
         this.model.getListings(data);
       });
     }
-    console.log(this.model);
   }
 
   onCategorySelected(id: number) {
@@ -50,6 +49,7 @@ export class AppComponent {
     this.saved = false;
     this.addListing = false;
     this.getListings(id);
+    this.expandedView = false;
   }
 
   onSaveSelected() {
