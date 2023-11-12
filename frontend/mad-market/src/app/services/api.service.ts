@@ -7,7 +7,8 @@ import { Observable } from 'rxjs';
 })
 export class ApiService {
 
-  apiUrl = 'http://localhost:8080';
+  //apiUrl = 'http://localhost:8080';
+  apiUrl = 'https://madmarket.ue.r.appspot.com';
 
   constructor(private http: HttpClient) { }
 
@@ -39,5 +40,13 @@ export class ApiService {
     const url = `${this.apiUrl}/addListing`;
     const body = { buyerId, listerId, categoryId, name, description, price };
     return this.http.post(url, body);
+  }
+
+  getListingByUser(id: number): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}/getListingsByListerId?listerId=${id}`);
+  }
+
+  deleteListing(id: number): Observable<any> {
+    return this.http.get<any[]>(`${this.apiUrl}/deleteListing?listingId=${id}`);
   }
 }

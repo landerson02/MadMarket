@@ -1,4 +1,4 @@
-import {Component, Input, OnChanges, SimpleChanges} from '@angular/core';
+import {Component, EventEmitter, Input, OnChanges, Output, SimpleChanges} from '@angular/core';
 import {Model} from "../../objects/model";
 import {Listing} from "../../objects/listing";
 import { faTicketAlt, faBlender, faCouch, faFileContract, faTshirt, faLaptop, faEllipsisH } from '@fortawesome/free-solid-svg-icons';
@@ -30,6 +30,7 @@ export class CategorylistingsComponent implements OnChanges {
   public exView: boolean = false;
   public selectedListing?: Listing;
   public displayedListings: Listing[] = [];
+  @Output() public deleteListing = new EventEmitter<number>();
 
   ngOnChanges(changes: SimpleChanges): void {
     if (this.categoryId !== undefined) {
@@ -56,6 +57,12 @@ export class CategorylistingsComponent implements OnChanges {
 
   onGoBack() {
     this.exView = false;
+    this.displayedListings.length = 0;
+    if (this.model) {
+      for (let item of this.model.listings) {
+        this.displayedListings.push(item);
+      }
+    }
   }
 
   onSearch() {
@@ -87,5 +94,9 @@ export class CategorylistingsComponent implements OnChanges {
         this.displayedListings.sort((a, b) => a.price - b.price);
         break;
     }
+  }
+
+  onDeleteListing(id: number) {
+    this.deleteListing.emit(id);
   }
 }

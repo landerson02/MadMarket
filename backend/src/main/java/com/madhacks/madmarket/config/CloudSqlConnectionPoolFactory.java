@@ -2,8 +2,10 @@ package com.madhacks.madmarket.config;
 
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.stereotype.Service;
 
 import javax.sql.DataSource;
 
@@ -11,10 +13,17 @@ import javax.sql.DataSource;
 public class CloudSqlConnectionPoolFactory {
 
 
-    private static final String INSTANCE_NAME = "madmarket:us-central1:madmarket";
-    private static final String DB_USER = "postgres";
-    private static final String DB_PASS = "madhacks";
-    private static final String DB_NAME = "madmarketdb";
+    @Value("${spring.datasource.instance_name}")
+    private String INSTANCE_NAME;
+
+    @Value("${spring.datasource.username}")
+    private String DB_USER;
+
+    @Value("${spring.datasource.password}")
+    private String DB_PASS;
+
+    @Value("${spring.datasource.db_name}")
+    private String DB_NAME;
 
     @Bean
     public DataSource getDataSource() {

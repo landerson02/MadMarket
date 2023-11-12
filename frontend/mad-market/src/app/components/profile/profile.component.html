@@ -1,15 +1,28 @@
-<div class="profile-container">
-  <div class="profile-pic">
-    <img src="./assets/bucky_head.png" alt="Bucky Headshot">
+<div *ngIf="!exView">
+  <div class="profile-container">
+    <div class="profile-pic">
+      <img src="./assets/bucky_head.png" alt="Bucky Headshot">
+    </div>
+    <div class="profile-info">
+      <h2 class="username">{{user?.userName}}</h2>
+      <p class="contact"><em>{{user?.email}}</em></p>
+      <p class="bio">Bio Here</p>
+      <h6 class="rating">Rating: 4.7/5 (7 Reviews)</h6>
+    </div>
   </div>
-  <div class="profile-info">
-    <h2 class="username">Bucky Badger</h2>
-    <p class="contact"><em>buckybadger@wisc.edu</em></p>
-    <p class="bio">Bio Here</p>
-    <h6 class="rating">Rating: 4.7/5 (7 Reviews)</h6>
+
+  <div class="active_selling">
+    <h3>Active Listings:</h3>
+    <div class="list-container">
+      <div *ngFor="let listing of user?.listings" class="list-container-item">
+        <app-listing [listing]="listing" (expandedView)="onExpandedView($event)"></app-listing>
+      </div>
+    </div>
   </div>
 </div>
 
-<div class="active_selling">
-  <h3>Active Listings:</h3>
+<div *ngIf="exView && selectedListing && categories">
+  <app-expandedlisting [listing]="selectedListing" (goBack)="onGoBack()"
+                       [categories]="categories" [userMode] = "true"
+                       (deleteListing)="onDeleteListing(selectedListing.listingId)"></app-expandedlisting>
 </div>

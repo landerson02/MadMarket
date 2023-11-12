@@ -108,6 +108,9 @@ export class AppComponent {
       if (data) {
         this.signInError = 1;
         this.model.getUser(data);
+        if (this.model.user) {
+          this.getListingByUser(this.model.user.userId);
+        }
       } else {
         this.signInError = 2;
       }
@@ -119,7 +122,27 @@ export class AppComponent {
     fields[2] = this.model.categories.find(x => x.name == fields[2])?.id.toString() || "0";
     this.apiService.addListing(Number(fields[0]), Number(fields[1]), Number(fields[2]),
       fields[3], fields[4], Number(fields[5])).subscribe(data => {
+        console.log(data);
+        if (this.model.user) {
+          this.getListingByUser(this.model.user.userId);
+          this.getListings(this.selectedCategory);
+          console.log(this.model.user);
+        }
+    });
+  }
+
+  onDeleteListing(id: number) {
+    this.apiService.deleteListing(id).subscribe(data => {
       console.log(data);
+      if (this.model.user) {
+        this.getListingByUser(this.model.user.userId);
+      }
+    });
+  }
+
+  getListingByUser(id: number) {
+    this.apiService.getListingByUser(id).subscribe(data => {
+      this.model.user?.getListing(data);
     });
   }
 }

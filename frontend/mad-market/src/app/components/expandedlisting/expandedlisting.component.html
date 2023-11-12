@@ -3,7 +3,8 @@
     <div class="card-header">
       <h2><i class="fa fa-arrow-left back" (click)="onGoBack()"></i> </h2>
       <h2>{{ listing.name }}</h2>
-      <h2></h2>
+      <h2 *ngIf="!userMode"></h2>
+      <h2 *ngIf="userMode"><i class="fa fa-trash-can back" style="color: red" (click)="onDeleteListing()"></i></h2>
     </div>
     <div class="card-body">
       <img src="assets/bucky_home.jpg" alt="{{ listing.name }} image" class="img-fluid mb-3">
@@ -13,6 +14,8 @@
       <p><strong>Price:</strong> ${{ listing.price}}</p>
 
       <p><strong>Posted:</strong> {{ listing.timestamp.toString()}}</p>
+
+      <p><strong>Category:</strong> {{ getCategoryName(listing.categoryId)}}</p>
 
       <p>Contact Seller:</p>
     </div>

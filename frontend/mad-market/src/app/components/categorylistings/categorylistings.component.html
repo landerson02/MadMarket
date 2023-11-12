@@ -31,6 +31,8 @@
     </div>
   </div>
 </div>
-<div *ngIf="exView && selectedListing">
-  <app-expandedlisting [listing]="selectedListing" (goBack)="onGoBack()"></app-expandedlisting>
+<div *ngIf="exView && selectedListing && model">
+  <app-expandedlisting [listing]="selectedListing" (goBack)="onGoBack()" [categories]="model.categories"
+                       [userMode] = "selectedListing.userId==model.user?.userId"
+                       (deleteListing)="onDeleteListing(selectedListing.listingId)"></app-expandedlisting>
 </div>
