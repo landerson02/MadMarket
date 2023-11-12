@@ -1,4 +1,4 @@
-class Subcategory {
+export class Subcategory {
   constructor(obj : any) {
     this.id = obj.id;
     this.name = obj.name;

@@ -14,27 +14,11 @@
 <nav class="navbar navbar-darkred navbar-expand-lg">
   <div class="container-fluid justify-content-center align-items-center">
     <ul class="navbar-nav">
-      <li class="nav-item">
-        <button class="nav-link nav-link-bottom">Tickets</button>
-      </li>
-      <li class="nav-item">
-        <button class="nav-link nav-link-bottom">Furniture</button>
-      </li>
-      <li class="nav-item">
-        <button class="nav-link nav-link-bottom">Appliances</button>
-      </li>
-      <li class="nav-item">
-        <button class="nav-link nav-link-bottom">Sub-leases</button>
-      </li>
-      <li class="nav-item">
-        <button class="nav-link nav-link-bottom">Clothing</button>
-      </li>
-      <li class="nav-item">
-        <button class="nav-link nav-link-bottom">Technology</button>
-      </li>
-      <li class="nav-item">
-        <button class="nav-link nav-link-bottom">Other</button>
-      </li>
+      <div *ngFor="let item of categories">
+        <li class="nav-item">
+          <button class="nav-link nav-link-bottom" (click)="onCategorySelected(item)">{{item.name}}</button>
+        </li>
+      </div>
     </ul>
   </div>
 </nav>

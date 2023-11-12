@@ -11,7 +11,7 @@ export class ApiService {
 
   constructor(private http: HttpClient) { }
 
-  getTest(): Observable<any[]> {
-    return this.http.get<any[]>(`${this.apiUrl}/test`);
+  getCategories(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}/getAllCategories`);
   }
 }
