@@ -11,7 +11,7 @@ public class ListingController {
     @Autowired
     ListingService listingService;
 
-    @PostMapping("/getListingsByCategory")
+    @GetMapping("/getListingsByCategory")
     public String getListingsByCategory(long categoryId) {
         return listingService.getListingsByCategory(categoryId).toString();
     }
