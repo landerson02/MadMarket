@@ -59,3 +59,7 @@
   color: #ccc;
   cursor: pointer;
 }
+
+#bottom-bar {
+  box-shadow: 0 4px 6px -2px #333333;
+}
