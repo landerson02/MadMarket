@@ -3,16 +3,18 @@
               (saveSelected)="onSaveSelected()" (signInSelected)="onSignInSelected()"/>
 </div>
 
-<div class="container">
-  <div *ngIf="signIn">
-    <app-signin/>
-  </div>
+<div *ngIf="signIn">
+  <app-signin/>
+</div>
 
-  <div *ngIf="saved">
-    <app-saved/>
-  </div>
+<div *ngIf="saved">
+  <app-saved/>
+</div>
 
-  <div *ngIf="selectedCategory>0">
-    <app-categorylistings [categoryId]="selectedCategory" [model]="model"></app-categorylistings>
-  </div>
+<div *ngIf="home">
+  <app-home></app-home>
+</div>
+
+<div *ngIf="selectedCategory>0">
+  <app-categorylistings [categoryId]="selectedCategory" [model]="model"></app-categorylistings>
 </div>
