@@ -14,4 +14,12 @@ export class ApiService {
   getCategories(): Observable<any[]> {
     return this.http.get<any[]>(`${this.apiUrl}/getAllCategories`);
   }
+
+  getAllListings(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}/getAllListings`);
+  }
+
+  getAllListingsByCategory(id : number): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}/getListingsByCategory?categoryId=${id}`);
+  }
 }

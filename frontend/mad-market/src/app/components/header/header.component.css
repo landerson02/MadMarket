@@ -33,3 +33,8 @@
 .nav-link:hover {
   color: #ccc;
 }
+
+.navbar-brand:hover {
+  color: #ccc;
+  cursor: pointer;
+}
