@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import {Component, Input} from '@angular/core';
+import {Category} from "../../objects/category";
 
 @Component({
   selector: 'app-sell',
@@ -6,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./sell.component.css']
 })
 export class SellComponent {
-
+  @Input() categories?: Category[];
 }

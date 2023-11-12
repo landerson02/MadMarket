@@ -31,13 +31,13 @@ public class UserService {
             String query = String.format("INSERT INTO users (username, email, phone) VALUES ('%s', '%s', '%s');", name, email, phone);
             System.out.println(query);
             conn = ds.getConnection();
-            conn.createStatement().executeQuery(query);
+            conn.createStatement().execute(query);
             conn.close();
-            return "success";
         } catch (SQLException e) {
             System.out.println(e);
             return null;
         }
+        return "{\"message\": \"User added successfully\"}";
     }
 
     public JSONObject getUserFromEmail(String email) {
