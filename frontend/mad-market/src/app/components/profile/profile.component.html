@@ -3,8 +3,8 @@
     <img src="./assets/bucky_head.png" alt="Bucky Headshot">
   </div>
   <div class="profile-info">
-    <h2 class="username">Bucky Badger</h2>
-    <p class="contact"><em>buckybadger@wisc.edu</em></p>
+    <h2 class="username">{{model?.user?.userName}}</h2>
+    <p class="contact"><em>{{model?.user?.email}}</em></p>
     <p class="bio">Bio Here</p>
     <h6 class="rating">Rating: 4.7/5 (7 Reviews)</h6>
   </div>
@@ -12,4 +12,9 @@
 
 <div class="active_selling">
   <h3>Active Listings:</h3>
+  <div class="list-container">
+    <div *ngFor="let listing of model?.user?.listings" class="list-container-item">
+      <app-listing [listing]="listing"></app-listing>
+    </div>
+  </div>
 </div>
