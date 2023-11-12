@@ -1,7 +1,4 @@
-<!--<p>{{category}}</p>-->
-<!--<p>All {{category}}</p>-->
-
-<div class="main-container">
+<div class="main-container" *ngIf="!exView">
   <div class="header">
     <h1>{{category}}</h1>
   </div>
@@ -18,7 +15,10 @@
   </div>
   <div class="list-container">
     <div *ngFor="let listing of model?.listings" class="list-container-item">
-      <app-listing [listing]="listing"></app-listing>
+      <app-listing [listing]="listing" (expandedView)="onExpandedView($event)"></app-listing>
     </div>
   </div>
+</div>
+<div *ngIf="exView && selectedListing">
+  <app-expandedlisting [listing]="selectedListing"></app-expandedlisting>
 </div>

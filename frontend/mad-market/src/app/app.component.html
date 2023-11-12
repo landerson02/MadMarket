@@ -5,7 +5,8 @@
 </div>
 
 <div *ngIf="signIn">
-  <app-signin (signup)="onSigningUpSelected($event)" (signin)="onSigningInSelected($event)"/>
+  <app-signin (signup)="onSigningUpSelected($event)" (signin)="onSigningInSelected($event)"
+              [signInError]="signInError" [signUpError]="signUpError"/>
 </div>
 
 <div *ngIf="saved">
@@ -17,9 +18,9 @@
 </div>
 
 <div *ngIf="selectedCategory>0">
-  <app-categorylistings [categoryId]="selectedCategory" [model]="model"></app-categorylistings>
+  <app-categorylistings [categoryId]="selectedCategory" [model]="model" [expandedView]="expandedView"/>
 </div>
 
 <div *ngIf="addListing">
-  <app-sell></app-sell>
+  <app-sell [categories]="model.categories"></app-sell>
 </div>

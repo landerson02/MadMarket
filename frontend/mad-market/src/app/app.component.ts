@@ -14,11 +14,14 @@ export class AppComponent {
   public home: boolean = true;
   public addListing: boolean = false;
   public selectedCategory: number = 0;
+  public expandedView: boolean = false;
+  public signUpError: number = 0;
+  public signInError: number = 0;
+
   constructor(private apiService: ApiService) {
     this.model = new Model();
     this.getCategories();
     this.getListings(0);
-    console.log(this.model);
   }
 
   getCategories() {
@@ -37,7 +40,6 @@ export class AppComponent {
         this.model.getListings(data);
       });
     }
-    console.log(this.model);
   }
 
   onCategorySelected(id: number) {
@@ -47,6 +49,7 @@ export class AppComponent {
     this.saved = false;
     this.addListing = false;
     this.getListings(id);
+    this.expandedView = false;
   }
 
   onSaveSelected() {
@@ -76,11 +79,21 @@ export class AppComponent {
   onSigningUpSelected(input : string) {
     const fields = input.split(",,");
     this.apiService.addUser(fields[0], fields[1], fields[2]).subscribe(data => {
-      console.log(data);
+      if (data) {
+        this.signUpError = 1;
+      } else {
+        this.signUpError = 2;
+      }
     });
   }
 
   onSigningInSelected(input : string) {
-    console.log(input);
+    this.apiService.getUser(input).subscribe(data => {
+      if (data) {
+        this.signInError = 1;
+      } else {
+        this.signInError = 2;
+      }
+    });
   }
 }

@@ -37,7 +37,7 @@ public class UserService {
             System.out.println(e);
             return null;
         }
-        return "success";
+        return "{\"message\": \"User added successfully\"}";
     }
 
     public JSONObject getUserFromEmail(String email) {

@@ -1,0 +1,24 @@
+.Listing{
+  position: relative;
+  text-align: center;
+  background-color: #e8c9c9;
+  padding: 20px;
+  border-radius: 10px;
+  width: 50%;
+  margin: 20px auto;
+  overflow: hidden;
+}
+
+h2 {
+  font-family: Georgia, serif;
+}
+
+input[type="text"], input[type="file"] {
+  width: 95%;
+  margin: 10px 0;
+  padding: 10px;
+}
+
+label {
+  font-family: Georgia, serif;
+}

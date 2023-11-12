@@ -8,6 +8,7 @@ export class Listing {
     this.price = Number(Number(obj.price).toFixed(2));
     this.keywords = obj.keywords;
     this.timestamp = obj.timestamp;
+    this.description = obj.description;
   }
 
   public listingId: number;
@@ -18,4 +19,5 @@ export class Listing {
   public price: number;
   public keywords: string;
   public timestamp: string;
+  public description: string;
 }

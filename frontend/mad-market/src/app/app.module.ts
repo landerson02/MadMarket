@@ -13,6 +13,7 @@ import { CategorylistingsComponent } from './components/categorylistings/categor
 import { ListingComponent } from './components/listing/listing.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { SellComponent } from './components/sell/sell.component';
+import { ExpandedlistingComponent } from './components/expandedlisting/expandedlisting.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { SellComponent } from './components/sell/sell.component';
     CategorylistingsComponent,
     SavedComponent,
     ListingComponent,
-    SellComponent
+    SellComponent,
+    ExpandedlistingComponent
   ],
   imports: [
     HttpClientModule,
