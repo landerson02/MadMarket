@@ -1,30 +1,31 @@
-<div class="header">
-  <nav class="navbar navbar-lightred navbar-expand-lg">
-    <div class="container-fluid">
-      <a class="navbar-brand" (click)="onCategorySelected(0)">MadMart</a>
-      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+<nav class="navbar navbar-lightred navbar-expand-lg">
+  <div class="container-fluid">
+    <a class="navbar-brand" (click)="onCategorySelected(0)">MadMart</a>
+    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+      <li class="nav-item">
+        <button class="nav-link  nav-link-top" (click)="onSignInSelected()">SIGN IN</button>
+      </li>
+      <li class="nav-item">
+        <button class="nav-link nav-link-top sell-button" (click)="onSellSelected()">SELL</button>
+      </li>
+      <li class="nav-item">
+        <button class="nav-link nav-link-top saved-button" (click)="onSaveSelected()">
+          SAVED
+          <i class="fas fa-bookmark bookmark-icon"></i>
+        </button>
+      </li>
+    </ul>
+  </div>
+</nav>
+<nav class="navbar navbar-darkred navbar-expand-lg">
+  <div class="container-fluid justify-content-center align-items-center">
+    <ul class="navbar-nav">
+      <div *ngFor="let item of categories">
         <li class="nav-item">
-          <button class="nav-link  nav-link-top" (click)="onSignInSelected()">SIGN IN</button>
+          <button class="nav-link nav-link-bottom" (click)="onCategorySelected(item.id)">{{item.name}}</button>
         </li>
-        <li class="nav-item">
-          <button class="nav-link nav-link-top saved-button" (click)="onSaveSelected()">
-            SAVED
-            <i class="fas fa-bookmark bookmark-icon"></i>
-          </button>
-        </li>
-      </ul>
-    </div>
-  </nav>
-  <nav class="navbar navbar-darkred navbar-expand-lg" id="bottom-bar">
-    <div class="container-fluid justify-content-center align-items-center">
-      <ul class="navbar-nav">
-        <div *ngFor="let item of categories">
-          <li class="nav-item">
-            <button class="nav-link nav-link-bottom" (click)="onCategorySelected(item.id)">{{item.name}}</button>
-          </li>
-        </div>
-      </ul>
-    </div>
-  </nav>
+      </div>
+    </ul>
+  </div>
+</nav>
 
-</div>

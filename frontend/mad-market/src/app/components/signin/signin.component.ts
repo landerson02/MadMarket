@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 
@@ -10,6 +10,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class SigninComponent implements OnInit {
   public signingIn: boolean = true;
   public init: boolean = false;
+  @Output() public signup = new EventEmitter<string>();
+  @Output() public signin = new EventEmitter<string>();
 
   signinForm: FormGroup = this.formBuilder.group({
     email: ['', [Validators.required, Validators.pattern('[a-zA-Z0-9._%+-]+@wisc\.edu$')]]
@@ -37,15 +39,13 @@ export class SigninComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log('data submitted:', this.signingIn ?
-      {email: this.signinForm.value.email} :
-      {
-        name: this.signupForm.value.name,
-        phone: this.signupForm.value.phone,
-        email: this.signupForm.value.email,
-      });
     if (!this.signingIn) {
-
+      let s = this.signupForm.value.name + ",," + this.signupForm.value.email + ",," + this.signupForm.value.phone;
+      this.signup.emit(s);
+    }
+    else {
+      let s = this.signinForm.value.email;
+      this.signin.emit(s);
     }
   }
 }
