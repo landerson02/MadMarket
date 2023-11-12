@@ -1,0 +1,30 @@
+.container {
+  width: 150px;
+  height: 180px;
+  margin: 0;
+  padding: 0;
+}
+
+.image-container {
+  width: 150px;
+  height: 150px;
+  margin: 0;
+  padding: 0;
+  background-color: #bbbbbb;
+  border-radius: 15px 15px 0 0;
+  border: 1px solid #aaaaaa;
+  border-bottom: 0;
+}
+
+.name-container {
+  text-align: center;
+  align-items: center;
+  width: 150px;
+  height: 30px;
+  margin: 0;
+  padding: 0;
+  background-color: #df1a1a;
+  border-radius: 0 0 15px 15px;
+  border: 1px solid #aaaaaa;
+  border-top: 0;
+}

@@ -36,7 +36,4 @@ export class SigninComponent implements OnInit {
         email: this.signupForm.value.email,
       });
   }
-
-
-
 }
