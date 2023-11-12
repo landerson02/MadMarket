@@ -17,7 +17,9 @@
 
       <p><strong>Category:</strong> {{ getCategoryName(listing.categoryId)}}</p>
 
-      <p>Contact Seller:</p>
+      <div *ngIf="lister">
+        <button class="btn btn-danger" (click)="sendEmail()">Contact Seller</button>
+      </div>
     </div>
   </div>
 </div>

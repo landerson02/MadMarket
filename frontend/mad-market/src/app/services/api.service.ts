@@ -7,8 +7,8 @@ import { Observable } from 'rxjs';
 })
 export class ApiService {
 
-  //apiUrl = 'http://localhost:8080';
-  apiUrl = 'https://madmarket.ue.r.appspot.com';
+  apiUrl = 'http://localhost:8080';
+  //apiUrl = 'https://madmarket.ue.r.appspot.com';
 
   constructor(private http: HttpClient) { }
 
@@ -52,5 +52,9 @@ export class ApiService {
 
   saveListing(userId: number, listingId: number): Observable<any> {
     return this.http.get<any[]>(`${this.apiUrl}/saveListing?userId=${userId}&listingId=${listingId}`);
+  }
+
+  getUserbyId(id: number): Observable<any> {
+    return this.http.get<any[]>(`${this.apiUrl}/getUserFromId?userId=${id}`);
   }
 }
