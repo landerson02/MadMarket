@@ -5,7 +5,7 @@ export class Listing {
     this.userId = obj.userId;
     this.categoryId = obj.categoryId;
     this.name = obj.name;
-    this.price = obj.price;
+    this.price = Number(Number(obj.price).toFixed(2));
     this.keywords = obj.keywords;
     this.timestamp = obj.timestamp;
   }
