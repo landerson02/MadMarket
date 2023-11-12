@@ -11,7 +11,7 @@ import { SigninComponent } from './components/signin/signin.component';
 import { SavedComponent } from './components/saved/saved.component';
 import { CategorylistingsComponent } from './components/categorylistings/categorylistings.component';
 import { ListingComponent } from './components/listing/listing.component';
-import {ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { SellComponent } from './components/sell/sell.component';
 
 @NgModule({
@@ -31,7 +31,8 @@ import { SellComponent } from './components/sell/sell.component';
     HttpClientModule,
     BrowserModule,
     NgbModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [
     ApiService

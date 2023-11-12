@@ -1,2 +1,23 @@
-<p>{{category}}</p>
-<p>All {{category}}</p>
+<!--<p>{{category}}</p>-->
+<!--<p>All {{category}}</p>-->
+
+<div class="main-container">
+  <div class="header">
+    <h1>{{category}}</h1>
+  </div>
+  <div class="filter-container">
+    <form (ngSubmit)="onSubmit()" class="search">
+      <label for="searchInput">Search:</label>
+      <input type="text" id="searchInput" name="searchInput" [(ngModel)]="searchQuery" required>
+      <button type="submit">Submit</button>
+    </form>
+    <button id="filter-button">Filter by</button>
+    <button id="sort-button">Sort by</button>
+    <button id="date-range-button">Date Range</button>
+  </div>
+  <div class="list-container">
+    <div *ngFor="let listing of model?.listings" class="list-container-item">
+      <app-listing [listing]="listing"></app-listing>
+    </div>
+  </div>
+</div>

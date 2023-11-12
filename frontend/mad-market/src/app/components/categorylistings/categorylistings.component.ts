@@ -15,4 +15,11 @@ export class CategorylistingsComponent implements OnChanges {
     this.category = this.model?.categories.find(category => category.id == this.categoryId)?.name;
     console.log(this.category);
   }
+
+  searchQuery: string = '';
+
+  onSubmit() {
+    console.log('Search query submitted:', this.searchQuery);
+    // Add additional logic here, such as performing a search operation
+  }
 }
