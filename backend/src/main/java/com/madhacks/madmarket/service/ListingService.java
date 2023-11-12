@@ -20,6 +20,23 @@ public class ListingService {
     @Autowired
     CloudSqlConnectionPoolFactory poolFactory;
 
+
+    public void addListing(long listingId, long buyerId, long listerId, long categoryId,
+                           String name, String description, float price, Date timestamp) {
+        DataSource ds = poolFactory.getDataSource();
+        String query = String.format("INSERT INTO listings (listing_id, buyer_id, lister_id, category_id, name, description, price, timestamp) " +
+                "VALUES ('%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s'", listingId, buyerId, listerId, categoryId, name, description, price, new Date());
+       try (Connection conn = ds.getConnection()) {
+           System.out.println(query);
+           conn.createStatement().executeQuery(query);
+        } catch (SQLException e) {
+            System.out.println(e);
+
+        }
+
+
+    }
+
     public void addListingTest(long categoryId) {
         DataSource ds = poolFactory.getDataSource();
         Random rand = new Random();
@@ -32,9 +49,9 @@ public class ListingService {
         builder.append("'").append(categoryId).append("'");
         builder.append(String.format(", 'Item#%s', ", rand.nextInt(0, 1000)));
         builder.append("'Desc', ");
-        builder.append("'").append(rand.nextInt(0, 100)).append("', ");
+        builder.append("'").append(rand.nextFloat(0, 1000)).append("', ");
         builder.append("'").append(new Date()).append("');");
-        //System.out.println("RUNNING: " + builder);
+        System.out.println("RUNNING: " + builder);
         try {
             conn = ds.getConnection();
             conn.createStatement().executeQuery(builder.toString());

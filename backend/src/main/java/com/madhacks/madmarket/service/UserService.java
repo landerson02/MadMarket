@@ -17,12 +17,12 @@ public class UserService {
     @Autowired
     CloudSqlConnectionPoolFactory poolFactory;
 
-    public void addUser(String name, String email, String phone) {
+    public String addUser(String name, String email, String phone) {
         // business logic for email and phone
 
         if (userExistsCheck(email)) {
             System.err.println("User already exists");
-            return;
+            return null;
         }
 
         Connection conn;
@@ -33,8 +33,10 @@ public class UserService {
             conn = ds.getConnection();
             conn.createStatement().executeQuery(query);
             conn.close();
+            return "success";
         } catch (SQLException e) {
             System.out.println(e);
+            return null;
         }
     }
 
