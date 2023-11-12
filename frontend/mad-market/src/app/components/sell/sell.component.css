@@ -35,3 +35,20 @@ button {
 button:hover {
   background-color: #bd0808;
 }
+
+.photos-section {
+  display: flex;
+  justify-content: center; /* Center the image-upload-container horizontally */
+  align-items: center;     /* Center the image-upload-container vertically */
+}
+
+.image-upload-container {
+  display: flex;
+  align-items: center;
+}
+
+/* Add styles for better visualization */
+.image-upload-container input {
+  align-items: center;
+  justify-content: center;
+}

@@ -73,19 +73,11 @@
         <option value="Other">Other</option>
       </select>
 
+      <h6>Photo:</h6>
       <div class="photos-section">
-<!--        <h6>Photos:</h6>-->
-<!--        <p>Add up to 8 photos in JPEG or PNG format</p>-->
-<!--        <div class="image-upload-container">-->
-<!--          &lt;!&ndash; Hidden file input &ndash;&gt;-->
-<!--          <input type="file" id="imageUpload" name="imageUpload[]" accept=".jpg, .jpeg, .png" multiple hidden>-->
-<!--          &lt;!&ndash; Custom upload button &ndash;&gt;-->
-<!--          <label for="imageUpload" class="upload-btn">Add a photo</label>-->
-
-<!--          &lt;!&ndash; Image preview slots &ndash;&gt;-->
-<!--          <div class="image-preview" id="imagePreview1"></div>-->
-<!--          &lt;!&ndash; Repeat the above line for the number of slots you want, or generate them dynamically with JavaScript &ndash;&gt;-->
-<!--        </div>-->
+        <div class="image-upload-container">
+          <input type="file" name="image" accept="image/png, image/jpeg" formControlName="imageUpload"/>
+        </div>
       </div>
 
 

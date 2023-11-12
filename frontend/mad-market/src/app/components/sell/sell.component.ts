@@ -48,5 +48,6 @@ export class SellComponent implements OnInit {
         this.sellForm.value.description + ",," + this.sellForm.value.price;
       this.sell.emit(s);
     }
+    console.log(this.sellForm.value.imageUpload);
   }
 }
