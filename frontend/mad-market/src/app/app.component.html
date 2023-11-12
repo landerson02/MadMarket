@@ -1,8 +1,9 @@
-<div *ngIf="model">
+<div class="header" *ngIf="model">
   <app-header [categories] = "model.categories" (categorySelected)="onCategorySelected($event)"
               (saveSelected)="onSaveSelected()" (signInSelected)="onSignInSelected()" [user]="model.user"
               (sellSelected)="onAddListingSelected()" (profileSelected)="onAddProfileSelected()"/>
 </div>
+<div style="height: 170px"></div>
 
 <div *ngIf="signIn">
   <app-signin (signup)="onSigningUpSelected($event)" (signin)="onSigningInSelected($event)"
