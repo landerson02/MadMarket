@@ -21,4 +21,16 @@ public class ListingController {
         return listingService.getAllListings().toString();
     }
 
+    @GetMapping("/addListing")
+    public void addListing() {
+        int MAX_ID = 7;
+        int NUM_TIMES = 10;
+        for (int j = 0; j < NUM_TIMES; ++j) {
+            for (int i = 1; i <= MAX_ID; ++i) {
+                listingService.addListingTest(i);
+            }
+        }
+    }
+
+
 }
