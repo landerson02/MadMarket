@@ -57,6 +57,16 @@ body {
   background-color: #bd0808;
 }
 
+.btn-container .drop-btn {
+  background-color: #dddddd;
+  color: black;
+  border-radius: 0;
+}
+
+.btn-container .drop-btn:hover {
+  background-color: #999999;
+}
+
 .btn-container {
   display: flex;
   flex-direction: row;
