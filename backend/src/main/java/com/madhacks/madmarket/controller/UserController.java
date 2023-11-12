@@ -16,12 +16,13 @@ public class UserController {
     @PostMapping("/addUser")
     public void signUpUser(@RequestBody User user) {
         String success = userService.addUser(user.getName(), user.getEmail(), user.getPhone());
+        System.err.println(success);
     }
 
     @GetMapping("/getUserFromEmail")
     public String getUserFromEmail(String email) {
         JSONObject obj = userService.getUserFromEmail(email);
-        return obj!=null ? obj.toString() : null;
+        return obj != null ? obj.toString() : null;
     }
 
 
