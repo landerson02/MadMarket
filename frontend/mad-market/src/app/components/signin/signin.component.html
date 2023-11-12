@@ -1,43 +1,41 @@
-<div class="main-container">
-  <div *ngIf="signingIn" class="signin-container">
-    <h1>Sign In</h1>
-    <form class="signin-form">
-      <div class="form-group">
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required>
-      </div>
-      <div class="form-group">
-        <button type="submit">Sign In</button>
-      </div>
-    </form>
-    <div class="signup-container">
-      <h6>Don't have an account?</h6>
-      <button (click)="signingIn=false" class="signup-button">Sign Up</button>
+<div *ngIf="signingIn" class="signin-container">
+  <h1>Sign In</h1>
+  <form class="signin-form">
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
     </div>
+    <div class="form-group">
+      <button type="submit">Sign In</button>
+    </div>
+  </form>
+  <div class="signup-container">
+    <h6>Don't have an account?</h6>
+    <button (click)="signingIn=false" class="signup-button">Sign Up</button>
   </div>
+</div>
 
-  <div *ngIf="!signingIn" class="signin-container">
-    <h1>Sign Up</h1>
-    <form class="signup-form">
-      <div class="form-group">
-        <label for="name">Name:</label>
-        <input type="text" id="Name" name="name" required>
-      </div>
-      <div class="form-group">
-        <label for="phone">Phone Number:</label>
-        <input type="tel" id="phone" name="phone" required>
-      </div>
-      <div class="form-group">
-        <label for="email">Email:</label>
-        <input type="email" id="newEmail" name="email" required>
-      </div>
-      <div class="form-group">
-        <button type="submit">Sign In</button>
-      </div>
-    </form>
-    <div class="signup-container">
-      <h6>Already have an account?</h6>
-      <button (click)="signingIn=true" class="signup-button">Sign In</button>
+<div *ngIf="!signingIn" class="signin-container">
+  <h1>Sign Up</h1>
+  <form class="signup-form">
+    <div class="form-group">
+      <label for="name">Name:</label>
+      <input type="text" id="Name" name="name" required>
     </div>
+    <div class="form-group">
+      <label for="phone">Phone Number:</label>
+      <input type="tel" id="phone" name="phone" required>
+    </div>
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input type="email" id="newEmail" name="email" required>
+    </div>
+    <div class="form-group">
+      <button type="submit">Sign In</button>
+    </div>
+  </form>
+  <div class="signup-container">
+    <h6>Already have an account?</h6>
+    <button (click)="signingIn=true" class="signup-button">Sign In</button>
   </div>
 </div>

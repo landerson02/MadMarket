@@ -3,11 +3,12 @@
               (saveSelected)="onSaveSelected()" (signInSelected)="onSignInSelected()"/>
 </div>
 
-<div *ngIf="signIn">
-  <app-signin/>
-</div>
+<div class="container">
+  <div *ngIf="signIn">
+    <app-signin/>
+  </div>
 
-<div *ngIf="saved">
-  <app-saved/>
+  <div *ngIf="saved">
+    <app-saved/>
+  </div>
 </div>
-
