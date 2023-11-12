@@ -1,46 +1,95 @@
-<div class = "Listing">
+<div *ngIf="init" class = "Listing">
   <h2>List an item</h2>
 
-  <form enctype="multipart/form-data">
-    <label for="title">Title:</label><br>
-    <input type="text" id="title" name="title" placeholder="What are you trying to sell?"><br>
+<!--  <form enctype="multipart/form-data">-->
+<!--    <label for="title">Title:</label><br>-->
+<!--    <input type="text" id="title" name="title" placeholder="What are you trying to sell?"><br>-->
 
-    <label for="description">Description:</label><br>
-    <input type="text" id="description" name="description" placeholder="Describe your item."><br>
+<!--    <label for="description">Description:</label><br>-->
+<!--    <input type="text" id="description" name="description" placeholder="Describe your item."><br>-->
 
-    <label for="contact">Contact:</label><br>
-    <input type="text" id="contact" name="contact" placeholder="Please include your school email."><br>
+<!--    <label for="contact">Contact:</label><br>-->
+<!--    <input type="text" id="contact" name="contact" placeholder="Please include your school email."><br>-->
 
-    <label for="price">Price:</label><br>
-    <input type="text" id="price" name="price" placeholder="How much to sell for?"><br>
+<!--    <label for="price">Price:</label><br>-->
+<!--    <input type="text" id="price" name="price" placeholder="How much to sell for?"><br>-->
 
-    <label for="category">Choose a Category:</label> <br>
-    <select name="category" id="category">
-      <option value="select">--Select--</option>
-      <option value="tickets">Tickets</option>
-      <option value="appliances">Appliances</option>
-      <option value="furniture">Furniture</option>
-      <option value="subleasing">Sub-Leasing</option>
-      <option value="clothing">Clothing</option>
-      <option value="technology">Technology</option>
-      <option value="other">Other</option>
-    </select>
+<!--    <label for="category">Choose a Category:</label> <br>-->
+<!--    <select name="category" id="category">-->
+<!--      <option value="select">&#45;&#45;Select&#45;&#45;</option>-->
+<!--      <option value="tickets">Tickets</option>-->
+<!--      <option value="appliances">Appliances</option>-->
+<!--      <option value="furniture">Furniture</option>-->
+<!--      <option value="subleasing">Sub-Leasing</option>-->
+<!--      <option value="clothing">Clothing</option>-->
+<!--      <option value="technology">Technology</option>-->
+<!--      <option value="other">Other</option>-->
+<!--    </select>-->
 
-    <div class="photos-section">
-      <h6>Photos:</h6>
-      <p>Add up to 8 photos in JPEG or PNG format</p>
-      <div class="image-upload-container">
-        <!-- Hidden file input -->
-        <input type="file" id="imageUpload" name="imageUpload[]" accept=".jpg, .jpeg, .png" multiple hidden>
-        <!-- Custom upload button -->
-        <label for="imageUpload" class="upload-btn">Add a photo</label>
+<!--    <div class="photos-section">-->
+<!--      <h6>Photos:</h6>-->
+<!--      <p>Add up to 8 photos in JPEG or PNG format</p>-->
+<!--      <div class="image-upload-container">-->
+<!--        &lt;!&ndash; Hidden file input &ndash;&gt;-->
+<!--        <input type="file" id="imageUpload" name="imageUpload[]" accept=".jpg, .jpeg, .png" multiple hidden>-->
+<!--        &lt;!&ndash; Custom upload button &ndash;&gt;-->
+<!--        <label for="imageUpload" class="upload-btn">Add a photo</label>-->
 
-        <!-- Image preview slots -->
-        <div class="image-preview" id="imagePreview1"></div>
-        <!-- Repeat the above line for the number of slots you want, or generate them dynamically with JavaScript -->
+<!--        &lt;!&ndash; Image preview slots &ndash;&gt;-->
+<!--        <div class="image-preview" id="imagePreview1"></div>-->
+<!--        &lt;!&ndash; Repeat the above line for the number of slots you want, or generate them dynamically with JavaScript &ndash;&gt;-->
+<!--      </div>-->
+<!--    </div>-->
+
+<!--    <input type="submit" value="Submit">-->
+<!--  </form>-->
+
+  <div *ngIf="sellForm">
+
+    <form [formGroup]="sellForm" (ngSubmit)="onSubmit()">
+      <label for="name">Title:</label><br>
+      <input type="text" id="name" formControlName="name" placeholder="What are you trying to sell?"><br>
+
+      <label for="description">Description:</label><br>
+      <input type="text" id="description" formControlName="description" name="description" placeholder="Describe your item."><br>
+
+      <label for="contact">Contact:</label><br>
+      <input type="text" id="contact" name="contact" formControlName="contact" placeholder="Please include your school email."><br>
+
+      <label for="price">Price:</label><br>
+      <input type="text" id="price" name="price" formControlName="price" placeholder="How much to sell for?"><br>
+
+
+      <label for="category">Choose a Category:</label> <br>
+      <select name="category" id="category" formControlName="category">
+        <option value="select">--Select--</option>
+        <option value="tickets">Tickets</option>
+        <option value="appliances">Appliances</option>
+        <option value="furniture">Furniture</option>
+        <option value="subleasing">Sub-Leasing</option>
+        <option value="clothing">Clothing</option>
+        <option value="technology">Technology</option>
+        <option value="other">Other</option>
+      </select>
+
+      <div class="photos-section">
+        <h6>Photos:</h6>
+        <p>Add up to 8 photos in JPEG or PNG format</p>
+        <div class="image-upload-container">
+          <!-- Hidden file input -->
+          <input type="file" id="imageUpload" name="imageUpload[]" accept=".jpg, .jpeg, .png" multiple hidden>
+          <!-- Custom upload button -->
+          <label for="imageUpload" class="upload-btn">Add a photo</label>
+
+          <!-- Image preview slots -->
+          <div class="image-preview" id="imagePreview1"></div>
+          <!-- Repeat the above line for the number of slots you want, or generate them dynamically with JavaScript -->
+        </div>
       </div>
-    </div>
 
-    <input type="submit" value="Submit">
-  </form>
+
+      <button type="submit" [disabled]="!sellForm.valid">Submit</button>
+    </form>
+
+  </div>
 </div>

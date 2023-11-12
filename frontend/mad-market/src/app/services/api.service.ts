@@ -29,4 +29,9 @@ export class ApiService {
     console.log(body);
     return this.http.post(url, body);
   }
+
+  getUser(email: string): Observable<any> {
+    const url = `${this.apiUrl}/getUserFromEmail?email=${email}`;
+    return this.http.get(url);
+  }
 }
