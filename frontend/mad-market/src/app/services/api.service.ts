@@ -44,4 +44,8 @@ export class ApiService {
   getListingByUser(id: number): Observable<any[]> {
     return this.http.get<any[]>(`${this.apiUrl}/getListingsByListerId?listerId=${id}`);
   }
+
+  deleteListing(id: number): Observable<any> {
+    return this.http.get<any[]>(`${this.apiUrl}/deleteListing?listingId=${id}`);
+  }
 }

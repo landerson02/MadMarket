@@ -18,11 +18,13 @@
 </div>
 
 <div *ngIf="profile">
-  <app-profile [user] = "model.user" [expandedView]="expandedView" [categories]="model.categories"></app-profile>
+  <app-profile [user] = "model.user" [expandedView]="expandedView" [categories]="model.categories"
+               (deleteListing)="onDeleteListing($event)"></app-profile>
 </div>
 
 <div *ngIf="selectedCategory>0">
-  <app-categorylistings [categoryId]="selectedCategory" [model]="model" [expandedView]="expandedView"/>
+  <app-categorylistings [categoryId]="selectedCategory" [model]="model" [expandedView]="expandedView"
+                        (deleteListing)="onDeleteListing($event)"/>
 </div>
 
 <div *ngIf="addListing">

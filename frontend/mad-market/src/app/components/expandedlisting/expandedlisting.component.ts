@@ -12,6 +12,7 @@ export class ExpandedlistingComponent {
   @Input() userMode?: boolean;
   @Input() categories? : Category[];
   @Output() public goBack = new EventEmitter<void>();
+  @Output() public deleteListing = new EventEmitter<void>();
 
   onGoBack() {
     this.goBack.emit();
@@ -19,5 +20,12 @@ export class ExpandedlistingComponent {
 
   getCategoryName(categoryId: number) {
     return this.categories?.find(category => category.id == categoryId)?.name;
+  }
+
+  onDeleteListing() {
+    if (this.listing) {
+      this.deleteListing.emit();
+    }
+    this.onGoBack();
   }
 }

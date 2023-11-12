@@ -1,4 +1,4 @@
-import {Component, Input, OnChanges} from '@angular/core';
+import {Component, EventEmitter, Input, OnChanges, Output} from '@angular/core';
 import {User} from "../../objects/user";
 import {Listing} from "../../objects/listing";
 import {Category} from "../../objects/category";
@@ -12,6 +12,7 @@ export class ProfileComponent implements OnChanges {
   @Input() user?: User;
   @Input() categories?: Category[];
   @Input() expandedView: boolean = false;
+  @Output() public deleteListing = new EventEmitter<number>();
   public exView: boolean = false;
   public selectedListing?: Listing;
 
@@ -26,5 +27,9 @@ export class ProfileComponent implements OnChanges {
 
   onGoBack() {
     this.exView = false;
+  }
+
+  onDeleteListing(id: number) {
+    this.deleteListing.emit(id);
   }
 }

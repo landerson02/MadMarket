@@ -125,8 +125,18 @@ export class AppComponent {
         console.log(data);
         if (this.model.user) {
           this.getListingByUser(this.model.user.userId);
+          this.getListings(this.selectedCategory);
           console.log(this.model.user);
         }
+    });
+  }
+
+  onDeleteListing(id: number) {
+    this.apiService.deleteListing(id).subscribe(data => {
+      console.log(data);
+      if (this.model.user) {
+        this.getListingByUser(this.model.user.userId);
+      }
     });
   }
 
