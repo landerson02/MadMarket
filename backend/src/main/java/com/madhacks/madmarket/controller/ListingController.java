@@ -9,7 +9,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.File;
 
 @RestController
-@CrossOrigin(origins = {"http://localhost:4200", "https://madmarket-frontend.uc.r.appspot.com"})
+@CrossOrigin(origins = {"http://localhost:4200", "https://madmarket-frontend.uc.r.appspot.com/"})
 public class ListingController {
 
     @Autowired
