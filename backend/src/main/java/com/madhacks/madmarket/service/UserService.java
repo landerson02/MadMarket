@@ -29,7 +29,7 @@ public class UserService {
             String query = String.format("INSERT INTO users (username, email, phone) VALUES ('%s', '%s', '%s');", name, email, phone);
             System.out.println(query);
             conn = ds.getConnection();
-          //  conn.createStatement().executeQuery(query);
+            conn.createStatement().executeQuery(query);
             conn.close();
         } catch (SQLException e) {
             System.out.println(e);
