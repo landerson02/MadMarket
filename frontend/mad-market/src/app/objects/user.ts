@@ -10,6 +10,7 @@ export class User {
   }
 
   getListing(listing : any) {
+    this.listings.length = 0;
     for (let item of listing) {
       this.listings.push(new Listing(item));
     }
