@@ -10,7 +10,7 @@
 }
 
 h2 {
-  font-family: Georgia, serif;
+  font-family: 'Times New Roman', serif;
 }
 
 input[type="text"], input[type="file"] {
@@ -21,4 +21,17 @@ input[type="text"], input[type="file"] {
 
 label {
   font-family: Georgia, serif;
+}
+
+button {
+  background-color: #df1a1a;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #bd0808;
 }
