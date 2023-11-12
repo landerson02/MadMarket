@@ -122,8 +122,11 @@ export class AppComponent {
     fields[2] = this.model.categories.find(x => x.name == fields[2])?.id.toString() || "0";
     this.apiService.addListing(Number(fields[0]), Number(fields[1]), Number(fields[2]),
       fields[3], fields[4], Number(fields[5])).subscribe(data => {
-      console.log(data);
+        console.log(data);
     });
+    if (this.model.user) {
+      this.getListingByUser(this.model.user.userId);
+    }
   }
 
   getListingByUser(id: number) {
