@@ -26,8 +26,8 @@ public class ListingController {
     }
 
     @PostMapping("/addListing")
-    public void addListing(@RequestBody Listing listing, @RequestParam("file") MultipartFile file) {
-        listingService.addListing(listing.getListingId(), listing.getBuyerId(), listing.getListerId(),
+    public void addListing(@RequestBody Listing listing) {
+        listingService.addListing(listing.getBuyerId(), listing.getListerId(),
                 listing.getCategoryId(), listing.getName(), listing.getDescription(), listing.getPrice());
 
     }

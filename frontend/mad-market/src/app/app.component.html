@@ -1,7 +1,7 @@
 <div *ngIf="model">
   <app-header [categories] = "model.categories" (categorySelected)="onCategorySelected($event)"
-              (saveSelected)="onSaveSelected()" (signInSelected)="onSignInSelected()"
-              (sellSelected)="onAddListingSelected()"/>
+              (saveSelected)="onSaveSelected()" (signInSelected)="onSignInSelected()" [user]="model.user"
+              (sellSelected)="onAddListingSelected()" (profileSelected)="onAddProfileSelected()"/>
 </div>
 
 <div *ngIf="signIn">
@@ -17,10 +17,14 @@
   <app-home></app-home>
 </div>
 
+<div *ngIf="profile">
+  <app-profile [user] = "model.user" [expandedView]="expandedView" [categories]="model.categories"></app-profile>
+</div>
+
 <div *ngIf="selectedCategory>0">
   <app-categorylistings [categoryId]="selectedCategory" [model]="model" [expandedView]="expandedView"/>
 </div>
 
 <div *ngIf="addListing">
-  <app-sell [categories]="model.categories"></app-sell>
+  <app-sell [categories]="model.categories" [user]="model.user" (sell)="onAddListing($event)"></app-sell>
 </div>

@@ -25,14 +25,16 @@ public class ListingService {
     /**
      * Adds a listing to the database
      */
-    public void addListing(long listingId, long buyerId, long listerId, long categoryId,
+    public void addListing(long buyerId, long listerId, long categoryId,
                            String name, String description, float price) {
         DataSource ds = poolFactory.getDataSource();
        try (Connection conn = ds.getConnection()) {
-           String query = String.format("INSERT INTO listings (listing_id, buyer_id, lister_id, category_id, name, description, price, timestamp) " +
-                   "VALUES ('%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s');", listingId, buyerId, listerId, categoryId, name, description, price, new Date());
+           String query = String.format("INSERT INTO listings (buyer_id, lister_id, category_id, name, description, price, timestamp) " +
+                   "VALUES ('%s', '%s', '%s', '%s', '%s', '%s', '%s');", buyerId, listerId, categoryId, name, description, price, new Date());
            System.out.println(query);
+           // String userListingQuery = String.format("INSERT INTO UserListings (UserID, ListingID) VALUES ('%s', '%s');", listerId, listingId);
            conn.createStatement().execute(query);
+           // conn.createStatement().execute(userListingQuery);
         } catch (SQLException e) {
             System.out.println(e);
         }

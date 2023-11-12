@@ -17,7 +17,7 @@
       <button (click)="signingIn=false; signInError=0" class="signup-button">Sign Up</button>
     </div>
     <div *ngIf="signInError==1">
-      <h6 style="text-align: center; font-style: italic; color: green">Success</h6>
+      <h6 style="text-align: center; font-style: italic; color: green">Success. Navigate to Home Page.</h6>
     </div>
     <div *ngIf="signInError==2">
       <h6 style="text-align: center; font-style: italic; color: red">Account does not exist. Please sign up.</h6>
@@ -57,7 +57,7 @@
     </div>
 
     <div *ngIf="signUpError==1">
-      <h6 style="text-align: center; font-style: italic; color: green">Success</h6>
+      <h6 style="text-align: center; font-style: italic; color: green">Success. Go to Sign In.</h6>
     </div>
     <div *ngIf="signUpError==2">
       <h6 style="text-align: center; font-style: italic; color: red">Account already exists. Please sign in.</h6>

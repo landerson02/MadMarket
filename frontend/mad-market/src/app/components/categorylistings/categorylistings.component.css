@@ -32,7 +32,7 @@ body {
 }
 
 .filter-container input:focus {
-  outline-color: #df1a1a;
+  /*outline-color: #df1a1a;*/
 }
 
 .filter-container {
@@ -55,6 +55,16 @@ body {
 
 .filter-container button:hover {
   background-color: #bd0808;
+}
+
+.btn-container .drop-btn {
+  background-color: #dddddd;
+  color: black;
+  border-radius: 0;
+}
+
+.btn-container .drop-btn:hover {
+  background-color: #999999;
 }
 
 .btn-container {
