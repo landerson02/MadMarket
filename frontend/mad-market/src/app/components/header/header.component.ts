@@ -14,6 +14,7 @@ export class HeaderComponent {
   @Output() saveSelected = new EventEmitter<void>();
   @Output() signInSelected = new EventEmitter<void>();
   @Output() sellSelected = new EventEmitter<void>();
+  @Output() profileSelected = new EventEmitter<void>();
 
   onCategorySelected(id: number) {
     this.categorySelected.emit(id);
@@ -30,5 +31,9 @@ export class HeaderComponent {
 
   onSellSelected() {
     this.sellSelected.emit();
+  }
+
+  onProfileSelected() {
+    this.profileSelected.emit();
   }
 }

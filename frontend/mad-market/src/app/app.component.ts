@@ -12,6 +12,7 @@ export class AppComponent {
   public signIn: boolean = false;
   public saved: boolean = false;
   public home: boolean = true;
+  public profile: boolean = false;
   public addListing: boolean = false;
   public selectedCategory: number = 0;
   public expandedView: boolean = false;
@@ -50,6 +51,7 @@ export class AppComponent {
     this.addListing = false;
     this.getListings(id);
     this.expandedView = false;
+    this.profile = false;
   }
 
   onSaveSelected() {
@@ -58,6 +60,7 @@ export class AppComponent {
     this.home = false;
     this.addListing = false;
     this.selectedCategory = 0;
+    this.profile = false;
   }
 
   onSignInSelected() {
@@ -65,6 +68,7 @@ export class AppComponent {
     this.saved = false;
     this.home = false;
     this.addListing = false;
+    this.profile = false;
     this.selectedCategory = 0;
     this.signUpError = 0;
     this.signInError = 0;
@@ -72,6 +76,16 @@ export class AppComponent {
 
   onAddListingSelected() {
     this.addListing = true;
+    this.signIn = false;
+    this.saved = false;
+    this.home = false;
+    this.profile = false;
+    this.selectedCategory = 0;
+  }
+
+  onAddProfileSelected() {
+    this.profile = true;
+    this.addListing = false;
     this.signIn = false;
     this.saved = false;
     this.home = false;

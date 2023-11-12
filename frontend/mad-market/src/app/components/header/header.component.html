@@ -9,7 +9,7 @@
       </div>
       <div *ngIf="user">
         <li class="nav-item">
-          <button class="nav-link nav-link-top sell-button">{{user.email}}</button>
+          <button class="nav-link nav-link-top sell-button" (click)="onProfileSelected()">{{user.email}}</button>
         </li>
       </div>
       <div *ngIf="user">
