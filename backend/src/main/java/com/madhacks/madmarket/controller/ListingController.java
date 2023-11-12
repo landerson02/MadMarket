@@ -9,7 +9,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.File;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = {"http://localhost:4200", "https://madmarket-frontend.uc.r.appspot.com/"})
 public class ListingController {
 
     @Autowired
@@ -41,14 +41,14 @@ public class ListingController {
 
 
     @GetMapping("/deleteListing")
-    public void deleteListing(@RequestBody Listing listing) {
-        listingService.deleteListing(listing.getListingId());
+    public void deleteListing(Long listingId) {
+        listingService.deleteListing(listingId);
     }
 
-    @GetMapping("/getListingsByUserId")
-    public String getListingsByUserId(long userId) {
-        return listingService.getListingsByUserId(userId).toString();
-    }
+//    @GetMapping("/getListingsByUserId")
+//    public String getListingsByUserId(long userId) {
+//        return listingService.getListingsByUserId(userId).toString();
+//    }
 
     @GetMapping("/getListingById")
     public String getListingById(long listingId) {
@@ -58,6 +58,16 @@ public class ListingController {
     @GetMapping("/getListingsByListerId")
     public String getListingsByListerId(long listerId) {
         return listingService.getListingsByListerId(listerId).toString();
+    }
+
+    @PostMapping("/saveListing")
+    public void saveListing(long userId, long listingId) {
+        listingService.saveListing(userId, listingId);
+    }
+
+    @GetMapping("/getSavedListings")
+    public String getSavedListings(long userId) {
+        return listingService.getSavedListings(userId).toString();
     }
 
     @GetMapping("/getListingsByBuyerId")
