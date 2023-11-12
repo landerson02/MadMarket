@@ -9,6 +9,12 @@ body {
   height: 100vh;
 }
 
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .signin-container {
   margin-top: 50px;
   background-color: #fff;
