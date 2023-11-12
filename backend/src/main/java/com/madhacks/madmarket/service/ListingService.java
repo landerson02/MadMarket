@@ -20,20 +20,18 @@ public class ListingService {
     @Autowired
     CloudSqlConnectionPoolFactory poolFactory;
 
-
     public void addListing(long listingId, long buyerId, long listerId, long categoryId,
-                           String name, String description, float price, Date timestamp) {
+                           String name, String description, float price) {
         DataSource ds = poolFactory.getDataSource();
-        String query = String.format("INSERT INTO listings (listing_id, buyer_id, lister_id, category_id, name, description, price, timestamp) " +
-                "VALUES ('%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s'", listingId, buyerId, listerId, categoryId, name, description, price, new Date());
        try (Connection conn = ds.getConnection()) {
+           String query = String.format("INSERT INTO listings (listing_id, buyer_id, lister_id, category_id, name, description, price, timestamp) " +
+                   "VALUES ('%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s');", listingId, buyerId, listerId, categoryId, name, description, price, new Date());
            System.out.println(query);
            conn.createStatement().executeQuery(query);
         } catch (SQLException e) {
             System.out.println(e);
 
         }
-
 
     }
 
@@ -107,7 +105,7 @@ public class ListingService {
         listing.setListingId(rs.getLong("listing_id"));
         listing.setName(rs.getString("name"));
         listing.setDescription(rs.getString("description"));
-        listing.setPrice(rs.getString("price"));
+        listing.setPrice(rs.getFloat("price"));
         return listing;
     }
 }
