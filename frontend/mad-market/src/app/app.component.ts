@@ -10,8 +10,8 @@ import {Category} from "./objects/category";
 })
 export class AppComponent {
   public model : Model = new Model();
-  public signIn: boolean = true;
-  public saved: boolean = false;
+  public signIn: boolean = false;
+  public saved: boolean = true;
   public home: boolean = true;
   public selectedCategory?: Category = undefined;
   constructor(private apiService: ApiService) {

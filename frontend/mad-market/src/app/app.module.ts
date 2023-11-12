@@ -7,12 +7,14 @@ import { HeaderComponent } from './components/header/header.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ApiService } from "./services/api.service";
 import { SigninComponent } from './components/signin/signin.component';
+import { SavedComponent } from './components/saved/saved.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    SigninComponent
+    SigninComponent,
+    SavedComponent
   ],
   imports: [
     HttpClientModule,
