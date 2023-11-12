@@ -5,6 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { HomeComponent } from './components/home/home.component';
 import { ApiService } from "./services/api.service";
 import { SigninComponent } from './components/signin/signin.component';
 import { SavedComponent } from './components/saved/saved.component';
@@ -15,6 +16,8 @@ import {ReactiveFormsModule} from "@angular/forms";
 @NgModule({
   declarations: [
     AppComponent,
+    HeaderComponent,
+    HomeComponent,
     HeaderComponent,
     SigninComponent,
     SavedComponent,

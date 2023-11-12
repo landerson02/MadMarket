@@ -1,0 +1,82 @@
+.welcome-box {
+  position: relative;
+  background-color: #e8c9c9;
+  padding: 20px;
+  border-radius: 10px;
+  width: 80%;
+  margin: 20px auto;
+  overflow: hidden;
+}
+
+h2 {
+  margin-top: 20px;
+  font-family: Georgia, serif;
+}
+
+.search-bar {
+  position: relative;
+  margin-bottom: 10px;
+  margin-right: 550px;
+}
+
+.search-bar input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  padding-right: 40px;
+  margin: 10px 0;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+}
+
+.search-bar .clear-btn {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.buttons .category-btn {
+  background-color: #bd0808;
+  border: none;
+  border-radius: 20px;
+  padding: 10px 20px;
+  margin: 0 5px;
+  cursor: pointer;
+  color: white;
+}
+
+.buttons .category-btn:hover {
+  background-color: #a93226;
+}
+
+.clear-btn {
+  background-color: transparent;
+  border: none;
+  color: #ccc;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.clear-btn:hover {
+  color: #999;
+}
+
+.bucky_image {
+  position: absolute;
+  top: 30px;
+  right: 20px;
+  width: 40%;
+}
+
+.bucky_image img {
+  max-width: 100%;
+  height: auto;
+  width: 300px;
+}
+
+#Top_Picks {
+  margin-left: 50px;
+}
