@@ -40,4 +40,8 @@ export class ApiService {
     const body = { buyerId, listerId, categoryId, name, description, price };
     return this.http.post(url, body);
   }
+
+  getListingByUser(id: number): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}/getListingsByListerId?listerId=${id}`);
+  }
 }
