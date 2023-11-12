@@ -128,6 +128,7 @@ public class ListingService {
         listing.setName(rs.getString("name"));
         listing.setDescription(rs.getString("description"));
         listing.setPrice(rs.getFloat("price"));
+        listing.setTimestamp(rs.getDate("timestamp"));
         return listing;
     }
 
