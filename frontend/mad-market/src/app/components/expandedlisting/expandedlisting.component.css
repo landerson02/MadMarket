@@ -3,6 +3,19 @@
   margin: 0 auto;
 }
 
+.card-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.card-header back {
+  /*margin-right: auto;*/
+}
+
+.card-header h2 {
+  /*margin: auto;*/
+}
+
 img {
   max-width: 100%;
   height: auto;
