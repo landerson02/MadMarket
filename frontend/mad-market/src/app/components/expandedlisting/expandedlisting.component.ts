@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {Listing} from "../../objects/listing";
 
 @Component({
@@ -8,4 +8,9 @@ import {Listing} from "../../objects/listing";
 })
 export class ExpandedlistingComponent {
   @Input() listing?: Listing;
+  @Output() public goBack = new EventEmitter<void>();
+
+  onGoBack() {
+    this.goBack.emit();
+  }
 }

@@ -8,8 +8,9 @@
   justify-content: space-between;
 }
 
-.card-header back {
-  /*margin-right: auto;*/
+.back:hover {
+  color: grey;
+  cursor: pointer;
 }
 
 .card-header h2 {
