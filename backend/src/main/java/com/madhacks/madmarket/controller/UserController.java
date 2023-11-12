@@ -29,6 +29,12 @@ public class UserController {
         return obj != null ? obj.toString() : null;
     }
 
+    @GetMapping("/getUserFromId")
+    public String getUserFromId(int userId) {
+        JSONObject obj = userService.getUserFromId(userId);
+        return obj != null ? obj.toString() : null;
+    }
+
     @PostMapping("/updateUser")
     public String updateUser(@RequestBody User user) {
         return userService.updateUser(user.getId(), user.getName(), user.getEmail(), user.getPhone());
