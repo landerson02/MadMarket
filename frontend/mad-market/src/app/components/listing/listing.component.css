@@ -3,28 +3,59 @@
   height: 180px;
   margin: 0;
   padding: 0;
+  background-color: #bbbbbb;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  border-radius: 5px;
 }
 
 .image-container {
-  width: 150px;
-  height: 150px;
+  width: 125px;
+  height: 125px;
   margin: 0;
   padding: 0;
-  background-color: #bbbbbb;
-  border-radius: 15px 15px 0 0;
-  border: 1px solid #aaaaaa;
-  border-bottom: 0;
+  background-color: #999999;
 }
 
-.name-container {
+.image-container img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.info-container {
   text-align: center;
   align-items: center;
-  width: 150px;
-  height: 30px;
+  width: 125px;
+  height: 40px;
   margin: 0;
   padding: 0;
-  background-color: #df1a1a;
-  border-radius: 0 0 15px 15px;
-  border: 1px solid #aaaaaa;
-  border-top: 0;
+}
+
+.card {
+  width: 200px;
+  height: 260px;
+}
+
+.card:hover {
+  background-color: #eeeeee;
+  cursor: pointer;
+}
+
+.card > .card-img-top {
+  height: 150px
+}
+
+.card > .card-body {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+}
+
+#price {
+  margin-top: -10px;
 }

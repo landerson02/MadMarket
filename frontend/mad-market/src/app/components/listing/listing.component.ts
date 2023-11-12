@@ -8,4 +8,13 @@ import {Listing} from "../../objects/listing";
 })
 export class ListingComponent {
  @Input() listing?: Listing;
+
+  formatPrice(price: number): string {
+    // Check if price is defined
+      // Use toFixed to format the price to 2 decimal places
+      return price.toFixed(2);
+
+    // Handle the case where price is undefined
+    // return '';
+  }
 }
