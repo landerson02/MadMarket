@@ -1,3 +1,30 @@
+<!--
+<script>
+  function showPopup(popupId) {
+    var popup = document.getElementById(popupId);
+    popup.style.display = 'block';
+  }
+
+  function hidePopup(popupId) {
+    var popup = document.getElementById(popupId);
+    popup.style.display = 'none';
+  }
+
+  // Adjusted: Hide popup when clicking outside of it
+  window.onclick = function(event) {
+    if (!event.target.matches('.scrolling-pictures img')) {
+      var popups = document.getElementsByClassName('popup');
+      for (var i = 0; i < popups.length; i++) {
+        var openPopup = popups[i];
+        if (openPopup.style.display === 'block') {
+          openPopup.style.display = 'none';
+        }
+      }
+    }
+  }
+</script>
+-->
+
 <div class="welcome-box">
   <h2 id="Intro">Your one-stop shop for all things college:</h2>
   <div class="search-bar">
@@ -15,6 +42,58 @@
 </div>
 
 <h2 id="Top_Picks">TOP PICKS:</h2>
+
+<div class="scrolling-pictures">
+
+  <div class="scrolling-pictures1item">
+    <img src="./assets/football.jpeg" alt="football ticket" onclick="showPopup('popup1')"/>
+    <p>$35</p>
+    <p>UW VS Northwestern Football Tickets</p>
+    <div *ngIf="openedPopup === 'popup1'" class="popup" id="popup1">
+      <img src="./assets/football.jpeg" alt="football ticket"/>
+      <p>$35</p>
+      <p>UW VS Northwestern Football Tickets</p>
+      <p>Section: 123</p>
+      <p>Row: 12</p>
+      <p>Seat: 12</p>
+      <p>Price: $35</p>
+      <p>Quantity: 1</p>
+      <button (click)="hidePopup()">Close</button>
+    </div>
+  </div>
+
+  <div class="scrolling-pictures2item">
+    <img src="./assets/ipad1.jpg" alt="ipad"/>
+    <p>$450</p>
+    <p>Apple iPad Air 4th Generation</p>
+  </div>
+
+  <div class="scrolling-pictures3item">
+    <img src="./assets/mircrowave1.jpg" alt="microwave"/>
+    <p>$40</p>
+    <p>Microwave</p>
+  </div>
+
+  <div class="scrolling-pictures4item">
+    <img src="./assets/sofa1.jpg" alt="sofa"/>
+    <p>$100</p>
+    <p>Comfy Sofa</p>
+  </div>
+
+  <div class="scrolling-pictures5item">
+    <img src="./assets/merch.jpg" alt="jacket"/>
+    <p>$38</p>
+    <p>UW Vintage Jacket</p>
+  </div>
+
+  <div class="scrolling-pictures6item">
+    <img src="./assets/sublease1.jpg" alt="sublease"/>
+    <p>$900 per Month</p>
+    <p>Room for Sublease</p>
+  </div>
+
+</div>
+
 
 
 

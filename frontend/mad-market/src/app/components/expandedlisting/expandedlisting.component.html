@@ -1,8 +1,7 @@
 <div *ngIf="listing" class="container mt-4">
-
   <div class="card">
     <div class="card-header">
-      <h2><i class="fa fa-arrow-left back"></i> </h2>
+      <h2><i class="fa fa-arrow-left back" (click)="onGoBack()"></i> </h2>
       <h2>{{ listing.name }}</h2>
       <h2></h2>
     </div>
@@ -13,7 +12,7 @@
 
       <p><strong>Price:</strong> ${{ listing.price}}</p>
 
-      <p><strong>Timestamp:</strong> {{ listing.timestamp | date:'medium' }}</p>
+      <p><strong>Posted:</strong> {{ listing.timestamp.toString()}}</p>
 
       <p>Contact Seller:</p>
     </div>

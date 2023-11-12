@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.io.File;
+
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
 public class ListingController {
@@ -27,7 +29,14 @@ public class ListingController {
     public void addListing(@RequestBody Listing listing, @RequestParam("file") MultipartFile file) {
         listingService.addListing(listing.getListingId(), listing.getBuyerId(), listing.getListerId(),
                 listing.getCategoryId(), listing.getName(), listing.getDescription(), listing.getPrice());
-        listingService.uploadImage(file, listing.getListingId());
+
+    }
+
+    @GetMapping("/testList")
+    public void testListing() {
+        File f = new File("/main/resources/static/bucky_home.jpg");
+        System.out.println(f.exists());
+        //listingService.uploadImage(f, 123L);
     }
 
 

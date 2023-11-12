@@ -15,6 +15,7 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { SellComponent } from './components/sell/sell.component';
 import { ExpandedlistingComponent } from './components/expandedlisting/expandedlisting.component';
 import {notEqualValidator} from "./components/sell/not-equal.validator";
+import { ProfileComponent } from './components/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import {notEqualValidator} from "./components/sell/not-equal.validator";
     SavedComponent,
     ListingComponent,
     SellComponent,
-    ExpandedlistingComponent
+    ExpandedlistingComponent,
+    ProfileComponent
   ],
   imports: [
     HttpClientModule,
