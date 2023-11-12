@@ -97,4 +97,22 @@ public class UserService {
             return null;
         }
     }
+
+    public JSONObject getUserFromId(int id) {
+        Connection conn;
+        DataSource ds = poolFactory.getDataSource();
+        try {
+            conn = ds.getConnection();
+            System.out.println(id);
+            String query = String.format("SELECT * FROM users WHERE id = '%d';", id);
+            ResultSet rs = conn.createStatement().executeQuery(query);
+            rs.next();
+            User user = createUser(rs.getInt("id") ,rs.getString("username"), rs.getString("email"), rs.getString("phone"));
+            conn.close();
+            return new JSONObject(user);
+        } catch (SQLException e) {
+            System.out.println(e);
+            return null;
+        }
+    }
 }
