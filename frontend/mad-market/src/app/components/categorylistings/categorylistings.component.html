@@ -1,2 +1,24 @@
-<p>{{category}}</p>
-<p>All {{category}}</p>
+<!--<p>{{category}}</p>-->
+<!--<p>All {{category}}</p>-->
+
+<div class="main-container">
+  <div class="header">
+    <h1>{{category}}</h1>
+  </div>
+  <div class="filter-container">
+    <div class="btn-container">
+      <input type="text" [(ngModel)]="search" class="searchbar">
+      <button id="search-button">Search</button>
+    </div>
+    <div class="btn-container">
+      <button id="filter-button">Filter by</button>
+      <button id="sort-button">Sort by</button>
+      <button id="date-range-button">Date Range</button>
+    </div>
+  </div>
+  <div class="list-container">
+    <div *ngFor="let listing of model?.listings" class="list-container-item">
+      <app-listing [listing]="listing"></app-listing>
+    </div>
+  </div>
+</div>

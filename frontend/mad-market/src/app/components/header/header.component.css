@@ -1,3 +1,6 @@
+.header {
+  position: sticky;
+}
 .navbar-lightred {
   background-color: #df1a1a;
   color: white;
@@ -58,4 +61,8 @@
 .navbar-brand:hover {
   color: #ccc;
   cursor: pointer;
+}
+
+#bottom-bar {
+  box-shadow: 0 4px 6px -2px #333333;
 }

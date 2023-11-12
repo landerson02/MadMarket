@@ -1,5 +1,6 @@
 package com.madhacks.madmarket.controller;
 
+import com.madhacks.madmarket.repository.Listing;
 import com.madhacks.madmarket.service.ListingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -21,7 +22,13 @@ public class ListingController {
         return listingService.getAllListings().toString();
     }
 
-    @GetMapping("/addListing")
+    @PostMapping("/addListing")
+    public void addListing(@RequestBody Listing listing) {
+        listingService.addListing(listing.getListingId(), listing.getBuyerId(), listing.getListerId(),
+                listing.getCategoryId(), listing.getName(), listing.getDescription(), listing.getPrice());
+    }
+
+    @GetMapping("/addListingTEST")
     public void addListing() {
         int MAX_ID = 7;
         int NUM_TIMES = 10;

@@ -2,6 +2,7 @@ package com.madhacks.madmarket.controller;
 
 import com.madhacks.madmarket.repository.User;
 import com.madhacks.madmarket.service.UserService;
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,9 +14,14 @@ public class UserController {
     UserService userService;
 
     @PostMapping("/addUser")
-    public void signUpUser(@RequestBody User user) {
-        System.out.println("name: " + user.getName());
-        userService.addUser(user.getName(), user.getEmail(), user.getPhone());
+    public String signUpUser(@RequestBody User user) {
+        return userService.addUser(user.getName(), user.getEmail(), user.getPhone());
+    }
+
+    @GetMapping("/getUserFromEmail")
+    public String getUserFromEmail(String email) {
+        JSONObject obj = userService.getUserFromEmail(email);
+        return obj != null ? obj.toString() : null;
     }
 
 
