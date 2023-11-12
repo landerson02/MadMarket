@@ -1,7 +1,6 @@
 import {Component, EventEmitter, Input, OnChanges, Output, SimpleChanges} from '@angular/core';
 import {Model} from "../../objects/model";
 import {Listing} from "../../objects/listing";
-import { faTicketAlt, faBlender, faCouch, faFileContract, faTshirt, faLaptop, faEllipsisH } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-categorylistings',
@@ -11,13 +10,13 @@ import { faTicketAlt, faBlender, faCouch, faFileContract, faTshirt, faLaptop, fa
 export class CategorylistingsComponent implements OnChanges {
 
   categories = [
-    { id: 1, name: 'Tickets', icon: faTicketAlt },
-    { id: 2, name: 'Appliances', icon: faBlender },
-    { id: 3, name: 'Furniture', icon: faCouch },
-    { id: 4, name: 'Sub-Leases', icon: faFileContract },
-    { id: 5, name: 'Clothing', icon: faTshirt },
-    { id: 6, name: 'Technology', icon: faLaptop },
-    { id: 7, name: 'Other', icon: faEllipsisH }
+    { id: 1, name: 'Tickets', icon: "fa fa-ticket-alt" },
+    { id: 2, name: 'Appliances', icon: "fa fa-blender" },
+    { id: 3, name: 'Furniture', icon: "fa fa-couch" },
+    { id: 4, name: 'Sub-Leases', icon: "fa fa-file-contract" },
+    { id: 5, name: 'Clothing', icon: "fa fa-tshirt" },
+    { id: 6, name: 'Technology', icon: "fa fa-laptop" },
+    { id: 7, name: 'Other', icon: "fa fa-ellipsis-h" }
   ];
 
   selectedCategory: { id: number, name: string, icon: any } | undefined;

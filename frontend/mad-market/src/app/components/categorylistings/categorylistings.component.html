@@ -1,7 +1,7 @@
 <div class="main-container" *ngIf="!exView">
   <div *ngIf="selectedCategory" class="header">
     <h1 class="category">
-      <fa-icon [icon]="selectedCategory.icon" aria-hidden="true"></fa-icon>
+      <div [class]="selectedCategory.icon"></div>
       {{ selectedCategory.name }}
     </h1>
   </div>
