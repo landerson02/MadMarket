@@ -11,11 +11,11 @@
       <div ngbDropdown>
         <button class="btn btn-warning" id="gfg"
                 ngbDropdownToggle>Sort by</button>
-        <div ngbDropdownMenu="gfg">
-          <button ngbDropdownItem (click)="onSort(1)">Most Recent</button>
-          <button ngbDropdownItem (click)="onSort(2)">Oldest</button>
-          <button ngbDropdownItem (click)="onSort(3)">Most Expensive</button>
-          <button ngbDropdownItem (click)="onSort(4)">Cheapest</button>
+        <div class="drop-down" ngbDropdownMenu="gfg">
+          <button class="drop-btn" ngbDropdownItem (click)="onSort(1)">Most Recent</button>
+          <button class="drop-btn" ngbDropdownItem (click)="onSort(2)">Oldest</button>
+          <button class="drop-btn" ngbDropdownItem (click)="onSort(3)">Most Expensive</button>
+          <button class="drop-btn" ngbDropdownItem (click)="onSort(4)">Cheapest</button>
         </div>
       </div>
         <!--      <button id="sort-button">Sort by</button>-->
